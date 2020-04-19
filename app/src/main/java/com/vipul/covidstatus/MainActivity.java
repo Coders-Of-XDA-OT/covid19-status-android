@@ -105,14 +105,18 @@ public class MainActivity extends AppCompatActivity {
                         totalTests = statewise.getString("totalsamplestested");
                     }
 
-                    textView_tests.append(totalTests);
-
                     for (int i=0; i<jsonArray.length()-1; i++){
                         JSONObject statewise = jsonArray.getJSONObject(i);
                         newTests = statewise.getString("totalsamplestested");
                     }
-                    int testsNew = (Integer.parseInt(totalTests))-(Integer.parseInt(newTests));
-                    textView_tests_new.append("[+"+testsNew+"]");
+                    if (totalTests.isEmpty()){
+                        textView_tests.append("-");
+                        textView_tests_new.append("-");
+                    } else {
+                        textView_tests.append(totalTests);
+                        int testsNew = (Integer.parseInt(totalTests))-(Integer.parseInt(newTests));
+                        textView_tests_new.append("[+"+testsNew+"]");
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
