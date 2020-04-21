@@ -329,6 +329,79 @@
             app:cardBackgroundColor="@color/cardBackground"
             app:cardCornerRadius="8dp">
 
+<!--            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="2"
+                    android:padding="10dp"
+                    android:rowCount="1">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        android:layout_columnWeight="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/button_bg">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="more"
+                                    android:textAlignment="center"
+                                    android:textColor="#20497f"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_marginLeft="10dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/button_bg">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="more"
+                                    android:textAlignment="center"
+                                    android:textColor="#20497f"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+            </RelativeLayout>-->
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 

@@ -123,6 +123,12 @@ public class MainActivity extends AppCompatActivity {
                         textView_tests_new.append("[+"+testsNew+"]");
                     } else {
                         textView_tests.append(totalTests);
+                        if (newTests.isEmpty()){
+                            for (int i=0; i<jsonArray.length()-2; i++){
+                                JSONObject statewise = jsonArray.getJSONObject(i);
+                                newTests = statewise.getString("totalsamplestested");
+                            }
+                        }
                         int testsNew = (Integer.parseInt(totalTests))-(Integer.parseInt(newTests));
                         textView_tests_new.append("[+"+testsNew+"]");
                     }
