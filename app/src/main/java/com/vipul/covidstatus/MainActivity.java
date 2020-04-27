@@ -2,7 +2,9 @@ package com.vipul.covidstatus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -144,5 +146,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequestTests);
+    }
+
+    public void openStatewise(View view){
+        Intent intent = new Intent(this, StatewiseDataActivity.class);
+        startActivity(intent);
+    }
+
+    public void openMoreInfo(View view){
+        Intent intent = new Intent(this, MoreInfoActivity.class);
+        startActivity(intent);
     }
 }

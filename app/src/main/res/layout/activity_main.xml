@@ -350,7 +350,8 @@
                             android:padding="10dp"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="?android:attr/selectableItemBackground">
+                            android:background="?android:attr/selectableItemBackground"
+                            android:onClick="openStatewise">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -380,7 +381,8 @@
                         android:padding="10dp"
                         android:clickable="true"
                         android:focusable="true"
-                        android:background="?android:attr/selectableItemBackground">
+                        android:background="?android:attr/selectableItemBackground"
+                        android:onClick="openMoreInfo">
 
                         <TextView
                             android:layout_width="wrap_content"
