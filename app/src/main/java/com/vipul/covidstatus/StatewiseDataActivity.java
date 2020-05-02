@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -21,54 +22,71 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatewiseDataActivity extends AppCompatActivity {
+public class StatewiseDataActivity extends AppCompatActivity  implements StatewiseAdapter.OnItemClickListner {
 
-    RecyclerView recyclerView;
-    List<StatewiseModel>statewiseModel;
-    private static String dataURL = "https://api.covid19india.org/data.json";
+    public static final String STATE_NAME = "stateName";
+    public static final String STATE_CONFIRMED = "stateConfirmed";
 
-    StatewiseAdapter statewiseAdapter;
+    private RecyclerView recyclerView;
+    private StatewiseAdapter statewiseAdapter;
+    private ArrayList<StatewiseModel>statewiseModelArrayList;
+    private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statewise_data);
+        recyclerView = findViewById(R.id.statewise_recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        statewiseModelArrayList = new ArrayList<>();
 
-        recyclerView.findViewById(R.id.statewise_recyclerview);
-
-        statewiseModel = new ArrayList<>();
-
+        requestQueue = Volley.newRequestQueue(this);
         extractData();
-
     }
 
     private void extractData() {
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String dataURL = "https://api.covid19india.org/data.json";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, dataURL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("statewise");
+
                     for (int i=1; i<jsonArray.length(); i++){
                         JSONObject statewise = jsonArray.getJSONObject(i);
-                        StatewiseModel statewiseModel = new StatewiseModel();
-                        statewiseModel.setState(statewise.getString("state"));
-                        statewiseModel.setConfirmed(statewise.getString("confirmed"));
+
+                        String stateName = statewise.getString("state");
+                        String stateConfirmed = statewise.getString("confirmed");
+
+                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed));
                     }
+
+                    statewiseAdapter = new StatewiseAdapter(StatewiseDataActivity.this, statewiseModelArrayList);
+                    recyclerView.setAdapter(statewiseAdapter);
+                    statewiseAdapter.setOnItemClickListner(StatewiseDataActivity.this);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                statewiseAdapter = new StatewiseAdapter(getApplicationContext(), statewiseModel);
-                recyclerView.setAdapter(statewiseAdapter);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("dataerror", "onErrorResponse: "+error.getMessage());
+                error.printStackTrace();
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent perStateIntent = new Intent(this, PerStateData.class);
+        StatewiseModel clickedItem = statewiseModelArrayList.get(position);
+
+        perStateIntent.putExtra(STATE_NAME, clickedItem.getState());
+        perStateIntent.putExtra(STATE_CONFIRMED, clickedItem.getConfirmed());
+
+        startActivity(perStateIntent);
     }
 }
