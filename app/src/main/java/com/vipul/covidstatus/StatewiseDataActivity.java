@@ -58,8 +58,11 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
                         String stateName = statewise.getString("state");
                         String stateConfirmed = statewise.getString("confirmed");
+                        String stateActive = statewise.getString("active");
+                        String stateDeceased = statewise.getString("deaths");
+                        String stateRecovered = statewise.getString("recovered");
 
-                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed));
+                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed,stateActive, stateDeceased, stateRecovered));
                     }
 
                     statewiseAdapter = new StatewiseAdapter(StatewiseDataActivity.this, statewiseModelArrayList);
