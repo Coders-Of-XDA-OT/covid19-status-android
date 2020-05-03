@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,12 +28,12 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
     public static final String STATE_NAME = "stateName";
     public static final String STATE_CONFIRMED = "stateConfirmed";
     public static final String STATE_ACTIVE = "stateActive";
-    public static final String STATE_RECOVERED = "stateRecovered";
     public static final String STATE_DECEASED = "stateDeaceased";
     public static final String STATE_NEW_CONFIRMED = "stateNewConfirmed";
-    public static final String STATE_NEW_RECOVERED = "stateRecovered";
+    public static final String STATE_NEW_RECOVERED = "stateNewRecovered";
     public static final String STATE_NEW_DECEASED = "stateNewDeceased";
     public static final String STATE_LAST_UPDATE = "stateLastUpdate";
+    public static final String STATE_RECOVERED = "stateRecovered";
 
     private RecyclerView recyclerView;
     private StatewiseAdapter statewiseAdapter;
@@ -73,7 +74,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
                         String stateNewDeceased = statewise.getString("deltadeaths");
                         String stateLastUpdate = statewise.getString("lastupdatedtime");
 
-                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed,stateActive, stateDeceased, stateRecovered, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate));
+                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed,stateActive, stateDeceased, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate, stateRecovered));
                     }
 
                     statewiseAdapter = new StatewiseAdapter(StatewiseDataActivity.this, statewiseModelArrayList);
@@ -101,12 +102,12 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
         perStateIntent.putExtra(STATE_NAME, clickedItem.getState());
         perStateIntent.putExtra(STATE_CONFIRMED, clickedItem.getConfirmed());
         perStateIntent.putExtra(STATE_ACTIVE, clickedItem.getActive());
-        perStateIntent.putExtra(STATE_RECOVERED, clickedItem.getRecovered());
         perStateIntent.putExtra(STATE_DECEASED, clickedItem.getDeceased());
         perStateIntent.putExtra(STATE_NEW_CONFIRMED, clickedItem.getNewConfirmed());
         perStateIntent.putExtra(STATE_NEW_RECOVERED, clickedItem.getNewRecovered());
         perStateIntent.putExtra(STATE_NEW_DECEASED, clickedItem.getNewDeceased());
         perStateIntent.putExtra(STATE_LAST_UPDATE, clickedItem.getLastupdate());
+        perStateIntent.putExtra(STATE_RECOVERED, clickedItem.getRecovered());
 
 
         startActivity(perStateIntent);
