@@ -3,9 +3,11 @@ package com.vipul.covidstatus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,7 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         textView_tests = findViewById(R.id.tests_textView);
         textView_date = findViewById(R.id.date_textView);
         textView_tests_new = findViewById(R.id.tests_new_textView);
+        final PieChart mPieChart = findViewById(R.id.piechart);
+
 
         //Fetching the API from URL
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {
@@ -83,6 +88,13 @@ public class MainActivity extends AppCompatActivity {
                     textView_death.append(deaths);
                     textView_death_new.append("[+"+newDeaths+"]");
                     textView_date.append(date);
+
+                    mPieChart.addPieSlice(new PieModel("Confirmed",Integer.parseInt(confirmed), Color.parseColor("#FBC233")));
+                    mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#78DBF3")));
+                    mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#7EC544")));
+                    mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deaths), Color.parseColor("#F6404F")));
+
+                    mPieChart.startAnimation();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
