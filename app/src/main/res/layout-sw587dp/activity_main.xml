@@ -72,7 +72,7 @@
                         android:gravity="center"
                         android:text="Confirmed"
                         android:textColor="@color/yellow"
-                        android:textSize="17sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:id="@+id/confirmed_textView"
@@ -81,7 +81,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="25sp" />
+                        android:textSize="38sp" />
 
                     <TextView
                         android:id="@+id/confirmed_new_textView"
@@ -90,7 +90,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/yellow"
-                        android:textSize="13sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -117,7 +117,7 @@
                         android:gravity="center"
                         android:text="Active"
                         android:textColor="@color/blue"
-                        android:textSize="17sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:id="@+id/active_textView"
@@ -126,7 +126,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="25sp"/>
+                        android:textSize="38sp"/>
 
                     <TextView
                         android:id="@+id/active_new_textView"
@@ -135,7 +135,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/blue"
-                        android:textSize="13sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -165,7 +165,7 @@
                         android:gravity="center"
                         android:text="Recovered"
                         android:textColor="@color/green"
-                        android:textSize="17sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:id="@+id/recovered_textView"
@@ -174,7 +174,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="25sp" />
+                        android:textSize="38sp" />
 
                     <TextView
                         android:id="@+id/recovered_new_textView"
@@ -183,7 +183,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/green"
-                        android:textSize="13sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -212,7 +212,7 @@
                         android:gravity="center"
                         android:text="Deceased"
                         android:textColor="@color/red"
-                        android:textSize="17sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:id="@+id/death_textView"
@@ -221,16 +221,16 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="25sp" />
+                        android:textSize="38sp" />
 
                     <TextView
                         android:id="@+id/death_new_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/red"
-                        android:textSize="13sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -273,7 +273,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="25dp"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
                         android:padding="10dp">
@@ -283,7 +283,7 @@
                             android:layout_height="wrap_content"
                             android:text="Samples tested"
                             android:textColor="@color/pink"
-                            android:textSize="17sp" />
+                            android:textSize="28sp" />
 
                         <TextView
                             android:id="@+id/tests_textView"
@@ -291,7 +291,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:textColor="#fff"
-                            android:textSize="25sp" />
+                            android:textSize="37sp" />
 
                         <TextView
                             android:id="@+id/tests_new_textView"
@@ -300,7 +300,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="@color/pink"
-                            android:textSize="13sp"/>
+                            android:textSize="18sp"/>
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -318,7 +318,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="25dp"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
                         android:padding="10dp">
@@ -328,7 +328,7 @@
                             android:layout_height="wrap_content"
                             android:text="Last update"
                             android:textColor="@color/orange"
-                            android:textSize="17sp" />
+                            android:textSize="28sp" />
 
                         <TextView
                             android:id="@+id/date_textView"
@@ -337,7 +337,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="#fff"
-                            android:textSize="19sp" />
+                            android:textSize="30sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -366,25 +366,25 @@
                     android:layout_columnWeight="1"
                     app:cardBackgroundColor="@color/cardBackground"
                     app:cardCornerRadius="8dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:onClick="openStatewise">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:onClick="openStatewise">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Statewise Data"
-                            android:textColor="#ff1744"
-                            android:textSize="15sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Statewise Data"
+                                android:textColor="#ff1744"
+                                android:textSize="21sp" />
 
-                    </LinearLayout>
+                        </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -413,7 +413,7 @@
                             android:layout_height="wrap_content"
                             android:text="More on COVID-19"
                             android:textColor="#69f0ae"
-                            android:textSize="15sp" />
+                            android:textSize="21sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
