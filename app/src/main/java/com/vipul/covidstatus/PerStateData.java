@@ -1,31 +1,34 @@
 package com.vipul.covidstatus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
 import java.util.Objects;
 
-import static com.vipul.covidstatus.StatewiseDataActivity.STATE_CONFIRMED;
-import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NAME;
 import static com.vipul.covidstatus.StatewiseDataActivity.STATE_ACTIVE;
+import static com.vipul.covidstatus.StatewiseDataActivity.STATE_CONFIRMED;
 import static com.vipul.covidstatus.StatewiseDataActivity.STATE_DECEASED;
-import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NEW_CONFIRMED;
-import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NEW_RECOVERED;
-import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NEW_DECEASED;
 import static com.vipul.covidstatus.StatewiseDataActivity.STATE_LAST_UPDATE;
+import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NAME;
+import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NEW_CONFIRMED;
+import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NEW_DECEASED;
+import static com.vipul.covidstatus.StatewiseDataActivity.STATE_NEW_RECOVERED;
 import static com.vipul.covidstatus.StatewiseDataActivity.STATE_RECOVERED;
 
 public class PerStateData extends AppCompatActivity {
 
     TextView perStateConfirmed, perStateActive, perStateDeceased, perStateNewConfirmed, perStateNewRecovered, perStateNewDeceased, perStateUpdate, perStateRecovered, perstateName;
     PieChart mPieChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,9 @@ public class PerStateData extends AppCompatActivity {
         String stateRecovery = intent.getStringExtra(STATE_RECOVERED);
 
         Objects.requireNonNull(getSupportActionBar()).setTitle(stateName);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         perStateConfirmed = findViewById(R.id.perstate_confirmed_textview);
         perStateActive = findViewById(R.id.perstate_active_textView);
         perStateRecovered = findViewById(R.id.perstate_recovered_textView);
@@ -65,9 +71,18 @@ public class PerStateData extends AppCompatActivity {
         perStateActive.append(stateActive);
         perStateDeceased.append(stateDeceased);
         perStateUpdate.append(stateLastUpdate);
-        perStateNewConfirmed.append("[+"+stateNewConfirmed+"]");
-        perStateNewRecovered.append("[+"+stateNewRecovered+"]");
-        perStateNewDeceased.append("[+"+stateNewDeceased+"]");
+        perStateNewConfirmed.append("[+" + stateNewConfirmed + "]");
+        perStateNewRecovered.append("[+" + stateNewRecovered + "]");
+        perStateNewDeceased.append("[+" + stateNewDeceased + "]");
         perStateRecovered.append(stateRecovery);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,15 +1,17 @@
 package com.vipul.covidstatus;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class StatewiseDataActivity extends AppCompatActivity  implements StatewiseAdapter.OnItemClickListner {
+public class StatewiseDataActivity extends AppCompatActivity implements StatewiseAdapter.OnItemClickListner {
 
     public static final String STATE_NAME = "stateName";
     public static final String STATE_CONFIRMED = "stateConfirmed";
@@ -38,26 +41,23 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
     private RecyclerView recyclerView;
     private StatewiseAdapter statewiseAdapter;
-    private ArrayList<StatewiseModel>statewiseModelArrayList;
+    private ArrayList<StatewiseModel> statewiseModelArrayList;
     private RequestQueue requestQueue;
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
     public static int confirmation = 0;
     public static String testValue;
     public static boolean isRefreshed;
-    SwipeRefreshLayout swipeRefreshLayout;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Statewise Data");
         setContentView(R.layout.activity_statewise_data);
-        recyclerView = findViewById(R.id.statewise_recyclerview);
-        swipeRefreshLayout = findViewById(R.id.statewise_refresh);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        statewiseModelArrayList = new ArrayList<>();
 
-        requestQueue = Volley.newRequestQueue(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        initViews();
         showProgressDialog();
         extractData();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -69,18 +69,29 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
                 Toast.makeText(StatewiseDataActivity.this, "Data refreshed!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    private void initViews() {
+        recyclerView = findViewById(R.id.statewise_recyclerview);
+        swipeRefreshLayout = findViewById(R.id.statewise_refresh);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        statewiseModelArrayList = new ArrayList<>();
+        progressDialog = new ProgressDialog(StatewiseDataActivity.this);
+        requestQueue = Volley.newRequestQueue(this);
     }
 
     private void extractData() {
-        String dataURL = "https://api.covid19india.org/data.json";
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, dataURL, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                Constants.Companion.getAPIDataUrl(),
+                null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("statewise");
 
-                    for (int i=1; i<jsonArray.length(); i++){
+                    for (int i = 1; i < jsonArray.length(); i++) {
                         JSONObject statewise = jsonArray.getJSONObject(i);
 
                         String stateName = statewise.getString("state");
@@ -93,7 +104,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
                         String stateNewDeceased = statewise.getString("deltadeaths");
                         String stateLastUpdate = statewise.getString("lastupdatedtime");
                         testValue = stateLastUpdate;
-                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed,stateActive, stateDeceased, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate, stateRecovered));
+                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed, stateActive, stateDeceased, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate, stateRecovered));
                     }
 
                     if (!testValue.isEmpty()) {
@@ -140,11 +151,10 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
         perStateIntent.putExtra(STATE_LAST_UPDATE, clickedItem.getLastupdate());
         perStateIntent.putExtra(STATE_RECOVERED, clickedItem.getRecovered());
 
-
         startActivity(perStateIntent);
     }
-    public void showProgressDialog(){
-        progressDialog = new ProgressDialog(StatewiseDataActivity.this);
+
+    public void showProgressDialog() {
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);
         progressDialog.setCanceledOnTouchOutside(false);
@@ -153,7 +163,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
             @Override
             public void run() {
-                if (confirmation!=1) {
+                if (confirmation != 1) {
                     progressDialog.cancel();
                     Toast.makeText(StatewiseDataActivity.this, "Internet slow/not available", Toast.LENGTH_SHORT).show();
                 }
@@ -161,5 +171,14 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
         };
         Handler pdCanceller = new Handler();
         pdCanceller.postDelayed(progressRunnable, 8000);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

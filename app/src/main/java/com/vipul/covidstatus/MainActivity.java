@@ -1,8 +1,5 @@
 package com.vipul.covidstatus;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,6 +9,9 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -52,19 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView_confirmed = findViewById(R.id.confirmed_textView);
-        textView_confirmed_new = findViewById(R.id.confirmed_new_textView);
-        textView_active = findViewById(R.id.active_textView);
-        textView_active_new = findViewById(R.id.active_new_textView);
-        textView_recovered = findViewById(R.id.recovered_textView);
-        textView_recovered_new = findViewById(R.id.recovered_new_textView);
-        textView_death = findViewById(R.id.death_textView);
-        textView_death_new = findViewById(R.id.death_new_textView);
-        textView_tests = findViewById(R.id.tests_textView);
-        textView_date = findViewById(R.id.date_textView);
-        textView_tests_new = findViewById(R.id.tests_new_textView);
-        swipeRefreshLayout = findViewById(R.id.main_refreshLayout);
-
+        initView();
         showProgressDialog();
         fetchData();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -79,13 +67,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void initView() {
+
+        textView_confirmed = findViewById(R.id.confirmed_textView);
+        textView_confirmed_new = findViewById(R.id.confirmed_new_textView);
+        textView_active = findViewById(R.id.active_textView);
+        textView_active_new = findViewById(R.id.active_new_textView);
+        textView_recovered = findViewById(R.id.recovered_textView);
+        textView_recovered_new = findViewById(R.id.recovered_new_textView);
+        textView_death = findViewById(R.id.death_textView);
+        textView_death_new = findViewById(R.id.death_new_textView);
+        textView_tests = findViewById(R.id.tests_textView);
+        textView_date = findViewById(R.id.date_textView);
+        textView_tests_new = findViewById(R.id.tests_new_textView);
+        swipeRefreshLayout = findViewById(R.id.main_refreshLayout);
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+
+    }
+
     public void fetchData() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String apiUrl = "https://api.covid19india.org/data.json";
         final PieChart mPieChart = findViewById(R.id.piechart);
         mPieChart.clearChart();
         //Fetching the API from URL
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                Constants.Companion.getAPIDataUrl(),
+                null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -186,7 +195,10 @@ public class MainActivity extends AppCompatActivity {
         });
         requestQueue.add(jsonObjectRequest);
 
-        JsonObjectRequest jsonObjectRequestTests = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequestTests = new JsonObjectRequest(
+                Request.Method.GET,
+                Constants.Companion.getAPIDataUrl(),
+                null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -238,7 +250,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showProgressDialog() {
-        progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);
         progressDialog.setCanceledOnTouchOutside(false);
