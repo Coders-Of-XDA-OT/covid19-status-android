@@ -9,6 +9,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -45,6 +48,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
     public static String testValue;
     public static boolean isRefreshed;
     SwipeRefreshLayout swipeRefreshLayout;
+    EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,8 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
         setContentView(R.layout.activity_statewise_data);
         recyclerView = findViewById(R.id.statewise_recyclerview);
         swipeRefreshLayout = findViewById(R.id.statewise_refresh);
+        search = findViewById(R.id.search_editText);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         statewiseModelArrayList = new ArrayList<>();
@@ -70,6 +76,34 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
             }
         });
 
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
+    }
+
+    private void filter(String text){
+        ArrayList<StatewiseModel> filteredList = new ArrayList<>();
+        for (StatewiseModel item : statewiseModelArrayList){
+            if (item.getState().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+
+        statewiseAdapter.filterList(filteredList);
     }
 
     private void extractData() {

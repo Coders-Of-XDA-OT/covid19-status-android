@@ -12,12 +12,30 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/search_editText"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="8dp"
+            android:hint="Search"
+            android:background="@drawable/edit_text_bg"
+            android:textColorHint="@color/gray"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:paddingStart="10dp"
+            android:drawableStart="@drawable/search_icon"
+            android:drawablePadding="10dp"
+            android:textColor="#fff"
+            tools:ignore="RtlSymmetry" />
+
+
         <androidx.cardview.widget.CardView
             android:id="@+id/statewise_title_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:layout_marginRight="5dp"
             app:cardBackgroundColor="@color/cardBackground"
             app:cardCornerRadius="8dp">
@@ -64,3 +82,13 @@
     </LinearLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
+
+
+
+
+
+

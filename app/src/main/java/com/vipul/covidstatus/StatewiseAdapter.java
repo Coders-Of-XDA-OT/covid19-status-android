@@ -51,6 +51,11 @@ public class StatewiseAdapter extends RecyclerView.Adapter<StatewiseAdapter.View
         return arrayList.size();
     }
 
+    public void filterList(ArrayList<StatewiseModel>filteredList){
+        arrayList = filteredList;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView stateName, stateTotalCases;
