@@ -39,11 +39,10 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
+                        app:egInnerPaddingColor="#bee3db"
                         app:egDrawValueInPie="true"
-                        app:egInnerPaddingColor="@color/cardBackground"
                         app:egLegendHeight="0dp"
-                        app:egValueTextColor="#fff"
-                        app:egValueTextSize="12sp"/>
+                        app:egValueTextSize="0dp"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -56,33 +55,13 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="15dp"
-                            android:gravity="center_vertical">
-
-                            <View
-                                android:layout_width="15dp"
-                                android:layout_height="match_parent"
-                                android:background="@color/yellow" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="10dp"
-                                android:text="Confirmed"
-                                android:textSize="12sp"
-                                android:textColor="#fff" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="15dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical">
 
                             <View
                                 android:layout_width="15dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/blue" />
+                                android:background="@color/blue_pie" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -103,7 +82,7 @@
                             <View
                                 android:layout_width="15dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/green" />
+                                android:background="@color/green_pie" />
 
                             <TextView
                                 android:layout_width="wrap_content"

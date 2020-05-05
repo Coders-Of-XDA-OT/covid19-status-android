@@ -10,4 +10,9 @@
     <color name="blue">#78DBF3</color>
     <color name="pink">#F375B5</color>
     <color name="orange">#FF7100</color>
+    <color name="blue_pie">#007afe</color>
+    <color name="red_pie">#F6404F</color>
+    <color name="green_pie">#08a045</color>
+    <color name="gray">#c4c4c4</color>
+
 </resources>
