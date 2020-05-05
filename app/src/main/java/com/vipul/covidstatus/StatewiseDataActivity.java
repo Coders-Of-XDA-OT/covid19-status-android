@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -16,12 +18,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.eazegraph.lib.models.PieModel;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public class StatewiseDataActivity extends AppCompatActivity  implements StatewiseAdapter.OnItemClickListner {
 
@@ -39,6 +42,9 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
     private StatewiseAdapter statewiseAdapter;
     private ArrayList<StatewiseModel>statewiseModelArrayList;
     private RequestQueue requestQueue;
+    ProgressDialog progressDialog;
+    public static int confirmation = 0;
+    public static String testValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,8 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
         requestQueue = Volley.newRequestQueue(this);
         extractData();
+        showProgressDialog();
+
     }
 
     private void extractData() {
@@ -73,13 +81,25 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
                         String stateNewRecovered = statewise.getString("deltarecovered");
                         String stateNewDeceased = statewise.getString("deltadeaths");
                         String stateLastUpdate = statewise.getString("lastupdatedtime");
-
+                        testValue = stateLastUpdate;
                         statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed,stateActive, stateDeceased, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate, stateRecovered));
                     }
 
-                    statewiseAdapter = new StatewiseAdapter(StatewiseDataActivity.this, statewiseModelArrayList);
-                    recyclerView.setAdapter(statewiseAdapter);
-                    statewiseAdapter.setOnItemClickListner(StatewiseDataActivity.this);
+                    if (!testValue.isEmpty()) {
+                        Runnable progressRunnable = new Runnable() {
+
+                            @Override
+                            public void run() {
+                                progressDialog.cancel();
+                                statewiseAdapter = new StatewiseAdapter(StatewiseDataActivity.this, statewiseModelArrayList);
+                                recyclerView.setAdapter(statewiseAdapter);
+                                statewiseAdapter.setOnItemClickListner(StatewiseDataActivity.this);
+                            }
+                        };
+                        Handler pdCanceller = new Handler();
+                        pdCanceller.postDelayed(progressRunnable, 500);
+                        confirmation = 1;
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -111,5 +131,24 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
 
         startActivity(perStateIntent);
+    }
+    public void showProgressDialog(){
+        progressDialog = new ProgressDialog(StatewiseDataActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.setCanceledOnTouchOutside(false);
+        Objects.requireNonNull(progressDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                if (confirmation!=1) {
+                    progressDialog.cancel();
+                    Toast.makeText(StatewiseDataActivity.this, "Internet slow/not available", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 8000);
     }
 }

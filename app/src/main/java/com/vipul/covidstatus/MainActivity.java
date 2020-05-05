@@ -2,9 +2,11 @@ package com.vipul.covidstatus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,11 +17,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,16 +38,15 @@ public class MainActivity extends AppCompatActivity {
     String newRecovered;
     String totalTests;
     String newTests;
+    public static int confirmation = 0;
 
     TextView textView_confirmed, textView_confirmed_new, textView_active, textView_active_new, textView_recovered, textView_recovered_new, textView_death, textView_death_new, textView_tests, textView_date, textView_tests_new;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String apiUrl = "https://api.covid19india.org/data.json";
 
         textView_confirmed = findViewById(R.id.confirmed_textView);
         textView_confirmed_new = findViewById(R.id.confirmed_new_textView);
@@ -55,9 +59,16 @@ public class MainActivity extends AppCompatActivity {
         textView_tests = findViewById(R.id.tests_textView);
         textView_date = findViewById(R.id.date_textView);
         textView_tests_new = findViewById(R.id.tests_new_textView);
+
+        showProgressDialog();
+        fetchData();
+
+    }
+
+    public void fetchData() {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String apiUrl = "https://api.covid19india.org/data.json";
         final PieChart mPieChart = findViewById(R.id.piechart);
-
-
         //Fetching the API from URL
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {
             @Override
@@ -77,31 +88,43 @@ public class MainActivity extends AppCompatActivity {
                     newDeaths = statewise.getString("deltadeaths");
                     newRecovered = statewise.getString("deltarecovered");
 
-                    textView_confirmed.append(confirmed);
-                    textView_confirmed_new.append("[+"+newConfirmed+"]");
-                    textView_active.append(active);
-                    //We need to calculate new active cases since it doesn't exist in API
-                    int newActive = (Integer.parseInt(newConfirmed))-((Integer.parseInt(newRecovered))+Integer.parseInt(newDeaths));
-                    textView_active_new.append("[+"+newActive+"]");
-                    textView_recovered.append(recovered);
-                    textView_recovered_new.append("[+"+newRecovered+"]");
-                    textView_death.append(deaths);
-                    textView_death_new.append("[+"+newDeaths+"]");
-                    textView_date.append(date);
+                    if (!date.isEmpty()) {
+                        Runnable progressRunnable = new Runnable() {
 
-                    mPieChart.addPieSlice(new PieModel("Confirmed",Integer.parseInt(confirmed), Color.parseColor("#FBC233")));
-                    mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#78DBF3")));
-                    mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#7EC544")));
-                    mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deaths), Color.parseColor("#F6404F")));
+                            @Override
+                            public void run() {
+                                progressDialog.cancel();
+                                textView_confirmed.append(confirmed);
+                                textView_confirmed_new.append("[+" + newConfirmed + "]");
+                                textView_active.append(active);
+                                //We need to calculate new active cases since it doesn't exist in API
+                                int newActive = (Integer.parseInt(newConfirmed)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
+                                textView_active_new.append("[+" + newActive + "]");
+                                textView_recovered.append(recovered);
+                                textView_recovered_new.append("[+" + newRecovered + "]");
+                                textView_death.append(deaths);
+                                textView_death_new.append("[+" + newDeaths + "]");
+                                textView_date.append(date);
 
-                    mPieChart.startAnimation();
+                                mPieChart.addPieSlice(new PieModel("Confirmed", Integer.parseInt(confirmed), Color.parseColor("#FBC233")));
+                                mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#78DBF3")));
+                                mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#7EC544")));
+                                mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deaths), Color.parseColor("#F6404F")));
+
+                                mPieChart.startAnimation();
+                            }
+                        };
+                        Handler pdCanceller = new Handler();
+                        pdCanceller.postDelayed(progressRunnable, 1000);
+                        confirmation = 1;
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
-        },new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
@@ -114,37 +137,37 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("tested");
-                    for (int i=0; i<jsonArray.length(); i++){
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject statewise = jsonArray.getJSONObject(i);
                         totalTests = statewise.getString("totalsamplestested");
                     }
 
-                    for (int i=0; i<jsonArray.length()-1; i++){
+                    for (int i = 0; i < jsonArray.length() - 1; i++) {
                         JSONObject statewise = jsonArray.getJSONObject(i);
                         newTests = statewise.getString("totalsamplestested");
                     }
-                    if (totalTests.isEmpty()){
-                        for (int i=0; i<jsonArray.length()-1; i++){
+                    if (totalTests.isEmpty()) {
+                        for (int i = 0; i < jsonArray.length() - 1; i++) {
                             JSONObject statewise = jsonArray.getJSONObject(i);
                             totalTests = statewise.getString("totalsamplestested");
                         }
                         textView_tests.append(totalTests);
-                        for (int i=0; i<jsonArray.length()-2; i++){
+                        for (int i = 0; i < jsonArray.length() - 2; i++) {
                             JSONObject statewise = jsonArray.getJSONObject(i);
                             newTests = statewise.getString("totalsamplestested");
                         }
-                        int testsNew = (Integer.parseInt(totalTests))-(Integer.parseInt(newTests));
-                        textView_tests_new.append("[+"+testsNew+"]");
+                        int testsNew = (Integer.parseInt(totalTests)) - (Integer.parseInt(newTests));
+                        textView_tests_new.append("[+" + testsNew + "]");
                     } else {
                         textView_tests.append(totalTests);
-                        if (newTests.isEmpty()){
-                            for (int i=0; i<jsonArray.length()-2; i++){
+                        if (newTests.isEmpty()) {
+                            for (int i = 0; i < jsonArray.length() - 2; i++) {
                                 JSONObject statewise = jsonArray.getJSONObject(i);
                                 newTests = statewise.getString("totalsamplestested");
                             }
                         }
-                        int testsNew = (Integer.parseInt(totalTests))-(Integer.parseInt(newTests));
-                        textView_tests_new.append("[+"+testsNew+"]");
+                        int testsNew = (Integer.parseInt(totalTests)) - (Integer.parseInt(newTests));
+                        textView_tests_new.append("[+" + testsNew + "]");
                     }
 
                 } catch (JSONException e) {
@@ -160,13 +183,34 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequestTests);
     }
 
-    public void openStatewise(View view){
+    public void showProgressDialog() {
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.setCanceledOnTouchOutside(false);
+        Objects.requireNonNull(progressDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                if (confirmation != 1) {
+                    progressDialog.cancel();
+                    Toast.makeText(MainActivity.this, "Internet slow/not available", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 8000);
+    }
+
+    public void openStatewise(View view) {
         Intent intent = new Intent(this, StatewiseDataActivity.class);
         startActivity(intent);
     }
 
-    public void openMoreInfo(View view){
+    public void openMoreInfo(View view) {
         Intent intent = new Intent(this, MoreInfoActivity.class);
         startActivity(intent);
     }
+
 }
