@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PerStateData"></activity>
+        <activity android:name=".PerStateData" />
         <activity android:name=".MoreInfoActivity" />
         <activity android:name=".StatewiseDataActivity" />
         <activity android:name=".MainActivity">

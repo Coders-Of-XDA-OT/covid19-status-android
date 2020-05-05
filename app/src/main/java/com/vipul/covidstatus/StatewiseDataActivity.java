@@ -3,10 +3,10 @@ package com.vipul.covidstatus;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
@@ -17,8 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.eazegraph.lib.models.PieModel;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,19 +43,31 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
     ProgressDialog progressDialog;
     public static int confirmation = 0;
     public static String testValue;
+    public static boolean isRefreshed;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statewise_data);
         recyclerView = findViewById(R.id.statewise_recyclerview);
+        swipeRefreshLayout = findViewById(R.id.statewise_refresh);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         statewiseModelArrayList = new ArrayList<>();
 
         requestQueue = Volley.newRequestQueue(this);
-        extractData();
         showProgressDialog();
+        extractData();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                isRefreshed = true;
+                extractData();
+                swipeRefreshLayout.setRefreshing(false);
+                Toast.makeText(StatewiseDataActivity.this, "Data refreshed!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
