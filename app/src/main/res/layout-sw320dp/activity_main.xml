@@ -42,15 +42,17 @@
                         app:egDrawValueInPie="true"
                         app:egInnerPaddingColor="@color/cardBackground"
                         app:egLegendHeight="0dp"
-                        app:egValueTextColor="#fff" />
+                        app:egValueTextColor="#fff"
+                        app:egValueTextSize="10sp"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="25dp"
+                        android:paddingStart="24dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="RtlSymmetry">
 
                         <LinearLayout
                             android:layout_width="match_parent"

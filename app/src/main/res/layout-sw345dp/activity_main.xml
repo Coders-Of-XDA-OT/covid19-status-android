@@ -42,23 +42,25 @@
                         app:egDrawValueInPie="true"
                         app:egInnerPaddingColor="@color/cardBackground"
                         app:egLegendHeight="0dp"
-                        app:egValueTextColor="#fff" />
+                        app:egValueTextColor="#fff"
+                        app:egValueTextSize="12sp"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="30dp"
+                        android:paddingStart="26dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="RtlSymmetry">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="15dp"
+                            android:layout_height="14dp"
                             android:gravity="center_vertical">
 
                             <View
-                                android:layout_width="15dp"
+                                android:layout_width="14dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/yellow" />
 
@@ -68,19 +70,19 @@
                                 android:paddingStart="5dp"
                                 android:text="Confirmed"
                                 android:textColor="#fff"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 tools:ignore="RtlSymmetry,SmallSp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="15dp"
+                            android:layout_height="14dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical">
 
                             <View
-                                android:layout_width="15dp"
+                                android:layout_width="14dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/blue" />
 
@@ -90,19 +92,19 @@
                                 android:paddingStart="5dp"
                                 android:text="Active"
                                 android:textColor="#fff"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 tools:ignore="RtlSymmetry,SmallSp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="15dp"
+                            android:layout_height="14dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical">
 
                             <View
-                                android:layout_width="15dp"
+                                android:layout_width="14dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/green" />
 
@@ -112,19 +114,19 @@
                                 android:paddingStart="5dp"
                                 android:text="Recovered"
                                 android:textColor="#fff"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 tools:ignore="RtlSymmetry,SmallSp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="15dp"
+                            android:layout_height="14dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical">
 
                             <View
-                                android:layout_width="15dp"
+                                android:layout_width="14dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/red" />
 
@@ -134,7 +136,7 @@
                                 android:paddingStart="5dp"
                                 android:text="Deceased"
                                 android:textColor="#fff"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 tools:ignore="RtlSymmetry,SmallSp" />
 
                         </LinearLayout>
