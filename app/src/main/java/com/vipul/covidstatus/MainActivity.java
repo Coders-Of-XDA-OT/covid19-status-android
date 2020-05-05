@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                                 textView_death_new.setText("[+" + newDeaths + "]");
                                 textView_date.setText(date);
 
-                                //mPieChart.addPieSlice(new PieModel("Confirmed", Integer.parseInt(confirmed), Color.parseColor("#FBC233")));
                                 mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#007afe")));
                                 mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#08a045")));
                                 mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deaths), Color.parseColor("#F6404F")));
@@ -161,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
                                     textView_death_new.setText("[+" + newDeaths + "]");
                                     textView_date.setText(date);
 
-                                    //mPieChart.addPieSlice(new PieModel("Confirmed", Integer.parseInt(confirmed), Color.parseColor("#FBC233")));
                                     mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#007afe")));
                                     mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#08a045")));
                                     mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deaths), Color.parseColor("#F6404F")));

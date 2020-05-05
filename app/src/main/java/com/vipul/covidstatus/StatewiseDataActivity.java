@@ -49,6 +49,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Statewise Data");
         setContentView(R.layout.activity_statewise_data);
         recyclerView = findViewById(R.id.statewise_recyclerview);
         swipeRefreshLayout = findViewById(R.id.statewise_refresh);

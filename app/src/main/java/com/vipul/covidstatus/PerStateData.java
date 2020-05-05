@@ -3,8 +3,12 @@ package com.vipul.covidstatus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 
 import java.util.Objects;
 
@@ -21,7 +25,7 @@ import static com.vipul.covidstatus.StatewiseDataActivity.STATE_RECOVERED;
 public class PerStateData extends AppCompatActivity {
 
     TextView perStateConfirmed, perStateActive, perStateDeceased, perStateNewConfirmed, perStateNewRecovered, perStateNewDeceased, perStateUpdate, perStateRecovered, perstateName;
-
+    PieChart mPieChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,7 @@ public class PerStateData extends AppCompatActivity {
         String stateLastUpdate = intent.getStringExtra(STATE_LAST_UPDATE);
         String stateRecovery = intent.getStringExtra(STATE_RECOVERED);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        Objects.requireNonNull(getSupportActionBar()).setTitle(stateName);
         perStateConfirmed = findViewById(R.id.perstate_confirmed_textview);
         perStateActive = findViewById(R.id.perstate_active_textView);
         perStateRecovered = findViewById(R.id.perstate_recovered_textView);
@@ -47,8 +51,15 @@ public class PerStateData extends AppCompatActivity {
         perStateNewConfirmed = findViewById(R.id.perstate_confirmed_new_textView);
         perStateNewRecovered = findViewById(R.id.perstate_recovered_new_textView);
         perStateNewDeceased = findViewById(R.id.perstate_death_new_textView);
-        perstateName = findViewById(R.id.state_name_textview);
+        mPieChart = findViewById(R.id.piechart_perstate);
 
+
+        //assert stateActive != null;
+        mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(stateActive), Color.parseColor("#007afe")));
+        mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(stateRecovery), Color.parseColor("#08a045")));
+        mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(stateDeceased), Color.parseColor("#F6404F")));
+
+        mPieChart.startAnimation();
 
         perStateConfirmed.append(stateConfirmed);
         perStateActive.append(stateActive);
@@ -58,6 +69,5 @@ public class PerStateData extends AppCompatActivity {
         perStateNewRecovered.append("[+"+stateNewRecovered+"]");
         perStateNewDeceased.append("[+"+stateNewDeceased+"]");
         perStateRecovered.append(stateRecovery);
-        perstateName.append(stateName);
     }
 }
