@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     String newTests;
     public static int confirmation = 0;
     public static boolean isRefreshed;
+    private long backPressTime;
+    private Toast backToast;
 
     TextView textView_confirmed, textView_confirmed_new, textView_active, textView_active_new, textView_recovered, textView_recovered_new, textView_death, textView_death_new, textView_tests, textView_date, textView_tests_new;
     ProgressDialog progressDialog;
@@ -77,6 +79,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (backPressTime + 200 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            backToast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressTime = System.currentTimeMillis();
     }
 
     public void fetchData() {
