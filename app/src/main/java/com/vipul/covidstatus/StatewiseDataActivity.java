@@ -113,7 +113,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("statewise");
-
+                    statewiseModelArrayList.clear();
                     for (int i=1; i<jsonArray.length(); i++){
                         JSONObject statewise = jsonArray.getJSONObject(i);
 
