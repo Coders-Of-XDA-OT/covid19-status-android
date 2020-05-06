@@ -1,6 +1,7 @@
 package com.vipul.covidstatus;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,15 @@ public class StatewiseAdapter extends RecyclerView.Adapter<StatewiseAdapter.View
     private Context mContext;
     private ArrayList<StatewiseModel> arrayList;
     private OnItemClickListner mListner;
+    private static final String STATE_NAME = "stateName";
+    private static final String STATE_CONFIRMED = "stateConfirmed";
+    private static final String STATE_ACTIVE = "stateActive";
+    private static final String STATE_DECEASED = "stateDeaceased";
+    private static final String STATE_NEW_CONFIRMED = "stateNewConfirmed";
+    private static final String STATE_NEW_RECOVERED = "stateNewRecovered";
+    private static final String STATE_NEW_DECEASED = "stateNewDeceased";
+    private static final String STATE_LAST_UPDATE = "stateLastUpdate";
+    private static final String STATE_RECOVERED = "stateRecovered";
 
     public  interface OnItemClickListner{
         void onItemClick(int position);
@@ -38,7 +48,29 @@ public class StatewiseAdapter extends RecyclerView.Adapter<StatewiseAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StatewiseModel clickedItem =arrayList.get(position);
+                Intent perStateIntent = new Intent(mContext, PerStateData.class);
+
+                perStateIntent.putExtra(STATE_NAME, clickedItem.getState());
+                perStateIntent.putExtra(STATE_CONFIRMED, clickedItem.getConfirmed());
+                perStateIntent.putExtra(STATE_ACTIVE, clickedItem.getActive());
+                perStateIntent.putExtra(STATE_DECEASED, clickedItem.getDeceased());
+                perStateIntent.putExtra(STATE_NEW_CONFIRMED, clickedItem.getNewConfirmed());
+                perStateIntent.putExtra(STATE_NEW_RECOVERED, clickedItem.getNewRecovered());
+                perStateIntent.putExtra(STATE_NEW_DECEASED, clickedItem.getNewDeceased());
+                perStateIntent.putExtra(STATE_LAST_UPDATE, clickedItem.getLastupdate());
+                perStateIntent.putExtra(STATE_RECOVERED, clickedItem.getRecovered());
+
+
+                mContext.startActivity(perStateIntent);
+            }
+        });
+
+
         StatewiseModel currentItem = arrayList.get(position);
         String stateName = currentItem.getState();
         String stateTotal = currentItem.getConfirmed();
