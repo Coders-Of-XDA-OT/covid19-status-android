@@ -1,5 +1,6 @@
 package com.vipul.covidstatus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -53,7 +55,9 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Statewise Data");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("State Data");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         setContentView(R.layout.activity_statewise_data);
         recyclerView = findViewById(R.id.statewise_recyclerview);
         swipeRefreshLayout = findViewById(R.id.statewise_refresh);
@@ -93,6 +97,13 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 
     private void filter(String text){

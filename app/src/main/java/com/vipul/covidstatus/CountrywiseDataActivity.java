@@ -1,5 +1,6 @@
 package com.vipul.covidstatus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -56,7 +58,11 @@ public class CountrywiseDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countrywise_data);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Countrywise Data");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("World Data");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
         recyclerView = findViewById(R.id.countrywise_recyclerview);
         swipeRefreshLayout = findViewById(R.id.countrywise_refresh);
         search = findViewById(R.id.search_editText);
@@ -95,6 +101,13 @@ public class CountrywiseDataActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 
     private void filter(String text) {

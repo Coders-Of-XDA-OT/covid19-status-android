@@ -1,10 +1,12 @@
 package com.vipul.covidstatus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.eazegraph.lib.charts.PieChart;
@@ -39,6 +41,8 @@ public class PerCountryData extends AppCompatActivity {
         String countryNewConfirmed = intent.getStringExtra(COUNTRY_NEW_CONFIRMED);
         String countryNewDeceased = intent.getStringExtra(COUNTRY_NEW_DECEASED);
         String countryTests = intent.getStringExtra(COUNTRY_TESTS);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         Objects.requireNonNull(getSupportActionBar()).setTitle(countryName);
@@ -65,5 +69,12 @@ public class PerCountryData extends AppCompatActivity {
         perCountryNewDeceased.append("[+"+countryNewDeceased+"]");
         perCountryRecovered.append(countryRecovery);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }

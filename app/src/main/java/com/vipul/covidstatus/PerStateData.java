@@ -1,10 +1,12 @@
 package com.vipul.covidstatus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.eazegraph.lib.charts.PieChart;
@@ -52,6 +54,8 @@ public class PerStateData extends AppCompatActivity {
         perStateNewRecovered = findViewById(R.id.perstate_recovered_new_textView);
         perStateNewDeceased = findViewById(R.id.perstate_death_new_textView);
         mPieChart = findViewById(R.id.piechart_perstate);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         //assert stateActive != null;
@@ -69,5 +73,12 @@ public class PerStateData extends AppCompatActivity {
         perStateNewRecovered.append("[+"+stateNewRecovered+"]");
         perStateNewDeceased.append("[+"+stateNewDeceased+"]");
         perStateRecovered.append(stateRecovery);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }
