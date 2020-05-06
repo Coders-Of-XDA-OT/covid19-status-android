@@ -15,7 +15,9 @@
         <activity android:name=".CountrywiseDataActivity" />
         <activity android:name=".PerStateData" />
         <activity android:name=".StatewiseDataActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+
+        <activity android:name=".SplashActivity" android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
