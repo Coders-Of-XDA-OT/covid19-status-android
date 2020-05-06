@@ -470,7 +470,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Statewise Data"
+                                android:text="State Data"
                                 android:textColor="#ff1744"
                                 android:textSize="28sp" />
 
@@ -501,7 +501,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="More on COVID-19"
+                                android:text="World Data"
                                 android:textColor="#69f0ae"
                                 android:textSize="28sp" />
                         </LinearLayout>

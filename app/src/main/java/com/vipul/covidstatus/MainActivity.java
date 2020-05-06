@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMoreInfo(View view) {
-        Intent intent = new Intent(this, MoreInfoActivity.class);
+        Intent intent = new Intent(this, CountrywiseDataActivity.class);
         startActivity(intent);
     }
 
