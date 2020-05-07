@@ -30,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.NumberFormat;
 import java.util.Objects;
 
 
@@ -43,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
     String newDeaths;
     String newRecovered;
     String totalTests;
-    String newTests;
+    String oldTests;
+    int testsInt;
+    String totalTestsCopy;
     public static int confirmation = 0;
     public static boolean isRefreshed;
     private long backPressTime;
@@ -146,21 +149,50 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 progressDialog.cancel();
+
+                                String activeCopy = active;
+                                String deathsCopy = deaths;
+                                String recoveredCopy = recovered;
+                                String confirmedNewCopy = newConfirmed;
+
+
+                                int confirmedInt = Integer.parseInt(confirmed);
+                                confirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
                                 textView_confirmed.setText(confirmed);
+
+                                int newConfirmedInt = Integer.parseInt(newConfirmed);
+                                newConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
                                 textView_confirmed_new.setText("[+" + newConfirmed + "]");
+
+                                int activeInt = Integer.parseInt(active);
+                                active = String.valueOf(NumberFormat.getInstance().format(activeInt));
                                 textView_active.setText(active);
+
                                 //We need to calculate new active cases since it doesn't exist in API
-                                int newActive = (Integer.parseInt(newConfirmed)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-                                textView_active_new.setText("[+" + newActive + "]");
+                                int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
+                                textView_active_new.setText("[+" + NumberFormat.getInstance().format(newActive) + "]");
+
+                                int recoveredInt = Integer.parseInt(recovered);
+                                recovered = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
                                 textView_recovered.setText(recovered);
+
+                                int recoveredNewInt = Integer.parseInt(newRecovered);
+                                newRecovered = String.valueOf(NumberFormat.getInstance().format(recoveredNewInt));
                                 textView_recovered_new.setText("[+" + newRecovered + "]");
+
+                                int deathsInt = Integer.parseInt(deaths);
+                                deaths = String.valueOf(NumberFormat.getInstance().format(deathsInt));
                                 textView_death.setText(deaths);
+
+                                int deathsNewInt = Integer.parseInt(newDeaths);
+                                newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
                                 textView_death_new.setText("[+" + newDeaths + "]");
+
                                 textView_date.setText(date);
 
-                                mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#007afe")));
-                                mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#08a045")));
-                                mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deaths), Color.parseColor("#F6404F")));
+                                mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
+                                mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
+                                mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deathsCopy), Color.parseColor("#F6404F")));
 
                                 mPieChart.startAnimation();
                             }
@@ -184,21 +216,49 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     progressDialog.cancel();
+
+                                    String activeCopy = active;
+                                    String deathsCopy = deaths;
+                                    String recoveredCopy = recovered;
+                                    String confirmedNewCopy = newConfirmed;
+
+                                    int confirmedInt = Integer.parseInt(confirmed);
+                                    confirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
                                     textView_confirmed.setText(confirmed);
+
+                                    int newConfirmedInt = Integer.parseInt(newConfirmed);
+                                    newConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
                                     textView_confirmed_new.setText("[+" + newConfirmed + "]");
+
+                                    int activeInt = Integer.parseInt(active);
+                                    active = String.valueOf(NumberFormat.getInstance().format(activeInt));
                                     textView_active.setText(active);
+
                                     //We need to calculate new active cases since it doesn't exist in API
-                                    int newActive = (Integer.parseInt(newConfirmed)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-                                    textView_active_new.setText("[+" + newActive + "]");
+                                    int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
+                                    textView_active_new.setText("[+" + NumberFormat.getInstance().format(newActive) + "]");
+
+                                    int recoveredInt = Integer.parseInt(recovered);
+                                    recovered = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
                                     textView_recovered.setText(recovered);
+
+                                    int recoveredNewInt = Integer.parseInt(newRecovered);
+                                    newRecovered = String.valueOf(NumberFormat.getInstance().format(recoveredNewInt));
                                     textView_recovered_new.setText("[+" + newRecovered + "]");
+
+                                    int deathsInt = Integer.parseInt(deaths);
+                                    deaths = String.valueOf(NumberFormat.getInstance().format(deathsInt));
                                     textView_death.setText(deaths);
+
+                                    int deathsNewInt = Integer.parseInt(newDeaths);
+                                    newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
                                     textView_death_new.setText("[+" + newDeaths + "]");
+
                                     textView_date.setText(date);
 
-                                    mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#007afe")));
-                                    mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#08a045")));
-                                    mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deaths), Color.parseColor("#F6404F")));
+                                    mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
+                                    mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
+                                    mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deathsCopy), Color.parseColor("#F6404F")));
 
                                     mPieChart.startAnimation();
                                 }
@@ -234,30 +294,40 @@ public class MainActivity extends AppCompatActivity {
 
                     for (int i = 0; i < jsonArray.length() - 1; i++) {
                         JSONObject statewise = jsonArray.getJSONObject(i);
-                        newTests = statewise.getString("totalsamplestested");
+                        oldTests = statewise.getString("totalsamplestested");
                     }
                     if (totalTests.isEmpty()) {
                         for (int i = 0; i < jsonArray.length() - 1; i++) {
                             JSONObject statewise = jsonArray.getJSONObject(i);
                             totalTests = statewise.getString("totalsamplestested");
                         }
+                        totalTestsCopy = totalTests;
+                        testsInt = Integer.parseInt(totalTests);
+                        totalTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
                         textView_tests.setText(totalTests);
+
+
                         for (int i = 0; i < jsonArray.length() - 2; i++) {
                             JSONObject statewise = jsonArray.getJSONObject(i);
-                            newTests = statewise.getString("totalsamplestested");
+                            oldTests = statewise.getString("totalsamplestested");
                         }
-                        int testsNew = (Integer.parseInt(totalTests)) - (Integer.parseInt(newTests));
-                        textView_tests_new.setText("[+" + testsNew + "]");
+                        int testsNew = (Integer.parseInt(totalTestsCopy)) - (Integer.parseInt(oldTests));
+                        textView_tests_new.setText("[+" + NumberFormat.getInstance().format(testsNew) + "]");
+
                     } else {
+                        totalTestsCopy = totalTests;
+                        testsInt = Integer.parseInt(totalTests);
+                        totalTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
                         textView_tests.setText(totalTests);
-                        if (newTests.isEmpty()) {
+
+                        if (oldTests.isEmpty()) {
                             for (int i = 0; i < jsonArray.length() - 2; i++) {
                                 JSONObject statewise = jsonArray.getJSONObject(i);
-                                newTests = statewise.getString("totalsamplestested");
+                                oldTests = statewise.getString("totalsamplestested");
                             }
                         }
-                        int testsNew = (Integer.parseInt(totalTests)) - (Integer.parseInt(newTests));
-                        textView_tests_new.setText("[+" + testsNew + "]");
+                        long testsNew = (Integer.parseInt(totalTestsCopy)) - (Integer.parseInt(oldTests));
+                        textView_tests_new.setText("[+" + NumberFormat.getInstance().format(testsNew) + "]");
                     }
 
                 } catch (JSONException e) {

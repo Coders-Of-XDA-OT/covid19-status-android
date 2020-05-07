@@ -12,6 +12,7 @@ import android.widget.TextView;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
+import java.text.NumberFormat;
 import java.util.Objects;
 
 import static com.vipul.covidstatus.StatewiseDataActivity.STATE_CONFIRMED;
@@ -57,22 +58,34 @@ public class PerStateData extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        String activeCopy = stateActive;
+        String recoveredCopy = stateRecovery;
+        String deceasedCopy = stateDeceased;
+
+        int stateActiveInt = Integer.parseInt(stateActive);
+        stateActive = String.valueOf(NumberFormat.getInstance().format(stateActiveInt));
+
+        int stateDeceasedInt = Integer.parseInt(stateDeceased);
+        stateDeceased = String.valueOf(NumberFormat.getInstance().format(stateDeceasedInt));
+
+        int stateRecoveredInt = Integer.parseInt(stateRecovery);
+        stateRecovery = String.valueOf(NumberFormat.getInstance().format(stateRecoveredInt));
 
         //assert stateActive != null;
-        mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(stateActive), Color.parseColor("#007afe")));
-        mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(stateRecovery), Color.parseColor("#08a045")));
-        mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(stateDeceased), Color.parseColor("#F6404F")));
+        mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
+        mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
+        mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deceasedCopy), Color.parseColor("#F6404F")));
 
         mPieChart.startAnimation();
 
-        perStateConfirmed.append(stateConfirmed);
-        perStateActive.append(stateActive);
-        perStateDeceased.append(stateDeceased);
-        perStateUpdate.append(stateLastUpdate);
-        perStateNewConfirmed.append("[+"+stateNewConfirmed+"]");
-        perStateNewRecovered.append("[+"+stateNewRecovered+"]");
-        perStateNewDeceased.append("[+"+stateNewDeceased+"]");
-        perStateRecovered.append(stateRecovery);
+        perStateConfirmed.setText(stateConfirmed);
+        perStateActive.setText(stateActive);
+        perStateDeceased.setText(stateDeceased);
+        perStateUpdate.setText(stateLastUpdate);
+        perStateNewConfirmed.setText("[+"+stateNewConfirmed+"]");
+        perStateNewRecovered.setText("[+"+stateNewRecovered+"]");
+        perStateNewDeceased.setText("[+"+stateNewDeceased+"]");
+        perStateRecovered.setText(stateRecovery);
     }
 
     @Override

@@ -28,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -143,6 +144,20 @@ public class CountrywiseDataActivity extends AppCompatActivity {
                             JSONObject object = jsonObject.getJSONObject("countryInfo");
                             String flagUrl = object.getString("flag");
                             testValue = countryTests;
+
+                            int confirmedInt = Integer.parseInt(countryConfirmed);
+                            countryConfirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
+
+                            int newConfirmedInt = Integer.parseInt(countryNewConfirmed);
+                            countryNewConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
+
+                            int newDeceasedInt = Integer.parseInt(countryNewDeceased);
+                            countryNewDeceased = String.valueOf(NumberFormat.getInstance().format(newDeceasedInt));
+
+                            int testsInt = Integer.parseInt(countryTests);
+                            countryTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
+
+
                             countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl));
                         }
                             if (!testValue.isEmpty()) {

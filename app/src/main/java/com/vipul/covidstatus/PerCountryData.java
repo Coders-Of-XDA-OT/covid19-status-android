@@ -12,6 +12,7 @@ import android.widget.TextView;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
+import java.text.NumberFormat;
 import java.util.Objects;
 
 import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_CONFIRMED;
@@ -54,10 +55,23 @@ public class PerCountryData extends AppCompatActivity {
         perCountryTests = findViewById(R.id.percountry_tests_textView);
         perCountryNewDeceased = findViewById(R.id.percountry_death_new_textView);
         mPieChart = findViewById(R.id.piechart_percountry);
+        
+        String activeCopy = countryActive;
+        String recoveredCopy = countryRecovery;
+        String deceasedCopy = countryDeceased;
 
-        mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(countryActive), Color.parseColor("#007afe")));
-        mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(countryRecovery), Color.parseColor("#08a045")));
-        mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(countryDeceased), Color.parseColor("#F6404F")));
+        int activeInt = Integer.parseInt(countryActive);
+        countryActive = String.valueOf(NumberFormat.getInstance().format(activeInt));
+
+        int recoveredInt = Integer.parseInt(countryRecovery);
+        countryRecovery = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
+
+        int deceasedInt = Integer.parseInt(countryDeceased);
+        countryDeceased = String.valueOf(NumberFormat.getInstance().format(deceasedInt));
+
+        mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
+        mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
+        mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deceasedCopy), Color.parseColor("#F6404F")));
 
         mPieChart.startAnimation();
 

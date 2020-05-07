@@ -26,6 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -138,6 +139,20 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
                         String stateNewDeceased = statewise.getString("deltadeaths");
                         String stateLastUpdate = statewise.getString("lastupdatedtime");
                         testValue = stateLastUpdate;
+
+                        int stateConfirmedInt = Integer.parseInt(stateConfirmed);
+                        stateConfirmed = String.valueOf(NumberFormat.getInstance().format(stateConfirmedInt));
+
+                        int stateNewConfirmedInt = Integer.parseInt(stateNewConfirmed);
+                        stateNewConfirmed = String.valueOf(NumberFormat.getInstance().format(stateNewConfirmedInt));
+
+                        int stateNewRecoveredInt = Integer.parseInt(stateNewRecovered);
+                        stateNewRecovered = String.valueOf(NumberFormat.getInstance().format(stateNewRecoveredInt));
+
+                        int stateNewDeceasedInt = Integer.parseInt(stateNewDeceased);
+                        stateNewDeceased = String.valueOf(NumberFormat.getInstance().format(stateNewDeceasedInt));
+
+
                         statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed,stateActive, stateDeceased, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate, stateRecovered));
                     }
 
