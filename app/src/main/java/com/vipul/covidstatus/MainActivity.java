@@ -195,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
                                 mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deathsCopy), Color.parseColor("#F6404F")));
 
                                 mPieChart.startAnimation();
+                                fetchTests();
                             }
                         };
                         Handler pdCanceller = new Handler();
@@ -261,6 +262,7 @@ public class MainActivity extends AppCompatActivity {
                                     mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deathsCopy), Color.parseColor("#F6404F")));
 
                                     mPieChart.startAnimation();
+                                    fetchTests();
                                 }
                             };
                             Handler pdCanceller = new Handler();
@@ -281,7 +283,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
 
+    public void fetchTests(){
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String apiUrl = "https://api.covid19india.org/data.json";
         JsonObjectRequest jsonObjectRequestTests = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
