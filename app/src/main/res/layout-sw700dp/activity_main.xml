@@ -362,10 +362,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="45dp"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -407,10 +405,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="45dp"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -420,13 +416,22 @@
                                 android:textSize="30sp" />
 
                             <TextView
+                                android:id="@+id/time_textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:textColor="#fff"
+                                android:textSize="44sp" />
+
+                            <TextView
                                 android:id="@+id/date_textView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
                                 android:textColor="#fff"
-                                android:textSize="35sp" />
+                                android:textSize="23sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 

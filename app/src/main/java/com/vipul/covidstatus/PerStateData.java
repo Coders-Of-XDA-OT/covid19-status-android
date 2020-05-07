@@ -78,10 +78,12 @@ public class PerStateData extends AppCompatActivity {
 
         mPieChart.startAnimation();
 
+        MainActivity object = new MainActivity();
+        String formatDate = object.formatDate(stateLastUpdate, 0);
         perStateConfirmed.setText(stateConfirmed);
         perStateActive.setText(stateActive);
         perStateDeceased.setText(stateDeceased);
-        perStateUpdate.setText(stateLastUpdate);
+        perStateUpdate.setText(formatDate);
         perStateNewConfirmed.setText("+"+stateNewConfirmed);
         perStateNewRecovered.setText("+"+stateNewRecovered);
         perStateNewDeceased.setText("+"+stateNewDeceased);

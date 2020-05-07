@@ -365,10 +365,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="6dp"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -410,10 +408,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="6dp"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -421,6 +417,14 @@
                                 android:text="Last update"
                                 android:textColor="@color/orange"
                                 android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/time_textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:textColor="#fff"
+                                android:textSize="20sp" />
 
                             <TextView
                                 android:id="@+id/date_textView"
@@ -429,7 +433,7 @@
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
                                 android:textColor="#fff"
-                                android:textSize="15sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 

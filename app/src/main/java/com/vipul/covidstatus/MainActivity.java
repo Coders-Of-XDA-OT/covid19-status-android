@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,6 +32,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 
@@ -52,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private long backPressTime;
     private Toast backToast;
 
-    TextView textView_confirmed, textView_confirmed_new, textView_active, textView_active_new, textView_recovered, textView_recovered_new, textView_death, textView_death_new, textView_tests, textView_date, textView_tests_new;
+    TextView textView_confirmed, textView_confirmed_new, textView_active, textView_active_new, textView_recovered, textView_recovered_new, textView_death, textView_death_new, textView_tests, textView_date, textView_tests_new, textview_time;
     ProgressDialog progressDialog;
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -73,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         textView_date = findViewById(R.id.date_textView);
         textView_tests_new = findViewById(R.id.tests_new_textView);
         swipeRefreshLayout = findViewById(R.id.main_refreshLayout);
+        textview_time = findViewById(R.id.time_textView);
 
         showProgressDialog();
         fetchData();
@@ -188,7 +194,11 @@ public class MainActivity extends AppCompatActivity {
                                 newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
                                 textView_death_new.setText("+" + newDeaths);
 
-                                textView_date.setText(date);
+                                String dateFormat = formatDate(date, 1);
+                                textView_date.setText(dateFormat);
+
+                                String timeFormat = formatDate(date, 2);
+                                textview_time.setText(timeFormat);
 
                                 mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
                                 mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
@@ -255,7 +265,12 @@ public class MainActivity extends AppCompatActivity {
                                     newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
                                     textView_death_new.setText("+" + newDeaths);
 
-                                    textView_date.setText(date);
+
+                                    String dateFormat = formatDate(date, 1);
+                                    textView_date.setText(dateFormat);
+
+                                    String timeFormat = formatDate(date, 2);
+                                    textview_time.setText(timeFormat);
 
                                     mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
                                     mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
@@ -283,6 +298,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+
+    public String formatDate(String date, int testCase){
+        Date mDate = null;
+        String dateFormat;
+        try {
+            mDate = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.US).parse(date);
+            if (testCase == 0){
+                dateFormat = new SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.US).format(mDate);
+                return dateFormat;
+            } else if (testCase == 1){
+                dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.US).format(mDate);
+                return dateFormat;
+            } else if (testCase == 2){
+                dateFormat = new SimpleDateFormat("hh:mm a", Locale.US).format(mDate);
+                return dateFormat;
+            } else {
+                Log.d("error", "Wrong input! Choose from 0 to 2");
+                return "Error";
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return date;
+        }
     }
 
     public void fetchTests(){
