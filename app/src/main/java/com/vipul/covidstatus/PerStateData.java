@@ -82,9 +82,9 @@ public class PerStateData extends AppCompatActivity {
         perStateActive.setText(stateActive);
         perStateDeceased.setText(stateDeceased);
         perStateUpdate.setText(stateLastUpdate);
-        perStateNewConfirmed.setText("[+"+stateNewConfirmed+"]");
-        perStateNewRecovered.setText("[+"+stateNewRecovered+"]");
-        perStateNewDeceased.setText("[+"+stateNewDeceased+"]");
+        perStateNewConfirmed.setText("+"+stateNewConfirmed);
+        perStateNewRecovered.setText("+"+stateNewRecovered);
+        perStateNewDeceased.setText("+"+stateNewDeceased);
         perStateRecovered.setText(stateRecovery);
     }
 

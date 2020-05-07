@@ -79,8 +79,8 @@ public class PerCountryData extends AppCompatActivity {
         perCountryActive.append(countryActive);
         perCountryDeceased.append(countryDeceased);
         perCountryTests.append(countryTests);
-        perCountryNewConfirmed.append("[+"+countryNewConfirmed+"]");
-        perCountryNewDeceased.append("[+"+countryNewDeceased+"]");
+        perCountryNewConfirmed.append("+"+countryNewConfirmed);
+        perCountryNewDeceased.append("+"+countryNewDeceased);
         perCountryRecovered.append(countryRecovery);
 
     }

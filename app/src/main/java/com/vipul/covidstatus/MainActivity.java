@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 int newConfirmedInt = Integer.parseInt(newConfirmed);
                                 newConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
-                                textView_confirmed_new.setText("[+" + newConfirmed + "]");
+                                textView_confirmed_new.setText("+" + newConfirmed);
 
                                 int activeInt = Integer.parseInt(active);
                                 active = String.valueOf(NumberFormat.getInstance().format(activeInt));
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 //We need to calculate new active cases since it doesn't exist in API
                                 int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-                                textView_active_new.setText("[+" + NumberFormat.getInstance().format(newActive) + "]");
+                                textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
 
                                 int recoveredInt = Integer.parseInt(recovered);
                                 recovered = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 int recoveredNewInt = Integer.parseInt(newRecovered);
                                 newRecovered = String.valueOf(NumberFormat.getInstance().format(recoveredNewInt));
-                                textView_recovered_new.setText("[+" + newRecovered + "]");
+                                textView_recovered_new.setText("+" + newRecovered);
 
                                 int deathsInt = Integer.parseInt(deaths);
                                 deaths = String.valueOf(NumberFormat.getInstance().format(deathsInt));
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 int deathsNewInt = Integer.parseInt(newDeaths);
                                 newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
-                                textView_death_new.setText("[+" + newDeaths + "]");
+                                textView_death_new.setText("+" + newDeaths);
 
                                 textView_date.setText(date);
 
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     int newConfirmedInt = Integer.parseInt(newConfirmed);
                                     newConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
-                                    textView_confirmed_new.setText("[+" + newConfirmed + "]");
+                                    textView_confirmed_new.setText("+"+newConfirmed);
 
                                     int activeInt = Integer.parseInt(active);
                                     active = String.valueOf(NumberFormat.getInstance().format(activeInt));
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     //We need to calculate new active cases since it doesn't exist in API
                                     int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-                                    textView_active_new.setText("[+" + NumberFormat.getInstance().format(newActive) + "]");
+                                    textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
 
                                     int recoveredInt = Integer.parseInt(recovered);
                                     recovered = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     int recoveredNewInt = Integer.parseInt(newRecovered);
                                     newRecovered = String.valueOf(NumberFormat.getInstance().format(recoveredNewInt));
-                                    textView_recovered_new.setText("[+" + newRecovered + "]");
+                                    textView_recovered_new.setText("+" + newRecovered);
 
                                     int deathsInt = Integer.parseInt(deaths);
                                     deaths = String.valueOf(NumberFormat.getInstance().format(deathsInt));
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     int deathsNewInt = Integer.parseInt(newDeaths);
                                     newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
-                                    textView_death_new.setText("[+" + newDeaths + "]");
+                                    textView_death_new.setText("+" + newDeaths);
 
                                     textView_date.setText(date);
 
@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                         long testsNew = (Integer.parseInt(totalTestsCopy)) - (Integer.parseInt(oldTests));
-                        textView_tests_new.setText("[+" + NumberFormat.getInstance().format(testsNew) + "]");
+                        textView_tests_new.setText("+" + NumberFormat.getInstance().format(testsNew));
                     }
 
                 } catch (JSONException e) {
