@@ -16,6 +16,9 @@ An android app to track COVID-19 status in India and around the world.
 
 <img src="https://i.ibb.co/f9ZCb7d/tia2138720110113882772.png" width="300">  <img src="https://i.ibb.co/mvYTm9Z/tia2389659439592305662.png" width="300">  <img src="https://i.ibb.co/MNqZG0x/tia4996689491716483321.png" width="300">  <img src="https://i.ibb.co/rwVBhbD/tia8564367837287057598.png" width="300">  <img src="https://i.ibb.co/y69Dxf4/tia2461307107052062229.png" width="300">   <img src="https://i.ibb.co/2nwpbbx/tia5159659246812396943.png" width="300">
 
+**Download: -**
+* [GitHub Releases](https://github.com/Coders-Of-XDA-OT/covid19-status-android/releases)
+
 **APIs used: -**
 
  * [https://api.covid19india.org/](https://api.covid19india.org/)
