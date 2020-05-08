@@ -31,7 +31,7 @@ An android app to track COVID-19 status in India and around the world.
 * Create a pull request.
 
 **Credits: -**
-* [Laura Reen]([https://iconscout.com/contributors/laura-reen/icons](https://iconscout.com/contributors/laura-reen/icons)) for app icon.  
+* [Laura Reen](https://iconscout.com/contributors/laura-reen/icons) for app icon.  
 * [Flaticon](https://www.flaticon.com/) for social media icons.  
 * [Ashish Vaish](https://www.facebook.com/ASHVA1SH) for his help in fixing bugs.
 
