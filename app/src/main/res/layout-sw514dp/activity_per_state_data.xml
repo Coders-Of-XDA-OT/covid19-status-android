@@ -159,7 +159,7 @@
                         android:id="@+id/perstate_confirmed_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
                         android:textSize="35sp" />
@@ -168,7 +168,7 @@
                         android:id="@+id/perstate_confirmed_new_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/yellow"
                         android:textSize="15sp" />
@@ -202,7 +202,7 @@
                         android:id="@+id/perstate_active_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
                         android:textSize="35sp" />
@@ -211,7 +211,7 @@
                         android:id="@+id/perstate_active_new_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/blue"
                         android:textSize="15sp" />
@@ -248,7 +248,7 @@
                         android:id="@+id/perstate_recovered_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
                         android:textSize="35sp" />
@@ -257,7 +257,7 @@
                         android:id="@+id/perstate_recovered_new_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/green"
                         android:textSize="15sp" />
@@ -293,7 +293,7 @@
                         android:id="@+id/perstate_death_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
                         android:textSize="35sp" />
@@ -302,7 +302,7 @@
                         android:id="@+id/perstate_death_new_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/red"
                         android:textSize="15sp" />
@@ -332,7 +332,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -347,7 +347,7 @@
                     android:id="@+id/perstate_lastupdate_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:textColor="#fff"
                     android:textSize="20sp" />
