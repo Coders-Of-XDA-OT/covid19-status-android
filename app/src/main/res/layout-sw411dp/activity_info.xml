@@ -96,44 +96,54 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Credits"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Credits"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/credits"
-        android:textColor="#fff"
-        android:textSize="16sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:text="@string/credits"
+                android:textColor="#fff"
+                android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:text="Libraries"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:text="Libraries"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/libs"
-        android:textColor="#fff"
-        android:textSize="16sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/libs"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

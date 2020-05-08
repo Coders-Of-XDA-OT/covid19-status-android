@@ -64,13 +64,13 @@ public class PerStateData extends AppCompatActivity {
         String deceasedCopy = stateDeceased;
 
         int stateActiveInt = Integer.parseInt(stateActive);
-        stateActive = String.valueOf(NumberFormat.getInstance().format(stateActiveInt));
+        stateActive = NumberFormat.getInstance().format(stateActiveInt);
 
         int stateDeceasedInt = Integer.parseInt(stateDeceased);
-        stateDeceased = String.valueOf(NumberFormat.getInstance().format(stateDeceasedInt));
+        stateDeceased = NumberFormat.getInstance().format(stateDeceasedInt);
 
         int stateRecoveredInt = Integer.parseInt(stateRecovery);
-        stateRecovery = String.valueOf(NumberFormat.getInstance().format(stateRecoveredInt));
+        stateRecovery = NumberFormat.getInstance().format(stateRecoveredInt);
 
         //assert stateActive != null;
         mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));

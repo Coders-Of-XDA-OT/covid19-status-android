@@ -96,6 +96,14 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,4 +144,6 @@
         android:text="@string/libs"
         android:textColor="#fff"
         android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

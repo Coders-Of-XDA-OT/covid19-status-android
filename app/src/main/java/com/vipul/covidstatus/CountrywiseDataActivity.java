@@ -146,16 +146,16 @@ public class CountrywiseDataActivity extends AppCompatActivity {
                         testValue = countryTests;
 
                         int confirmedInt = Integer.parseInt(countryConfirmed);
-                        countryConfirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
+                        countryConfirmed = NumberFormat.getInstance().format(confirmedInt);
 
                         int newConfirmedInt = Integer.parseInt(countryNewConfirmed);
-                        countryNewConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
+                        countryNewConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
 
                         int newDeceasedInt = Integer.parseInt(countryNewDeceased);
-                        countryNewDeceased = String.valueOf(NumberFormat.getInstance().format(newDeceasedInt));
+                        countryNewDeceased = NumberFormat.getInstance().format(newDeceasedInt);
 
                         int testsInt = Integer.parseInt(countryTests);
-                        countryTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
+                        countryTests = NumberFormat.getInstance().format(testsInt);
 
 
                         countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl));

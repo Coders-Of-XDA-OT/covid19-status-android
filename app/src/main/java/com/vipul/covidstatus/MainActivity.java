@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (backPressTime + 200 > System.currentTimeMillis()) {
+        if (backPressTime + 800 > System.currentTimeMillis()) {
             backToast.cancel();
             super.onBackPressed();
             return;
@@ -163,15 +163,15 @@ public class MainActivity extends AppCompatActivity {
 
 
                                 int confirmedInt = Integer.parseInt(confirmed);
-                                confirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
+                                confirmed = NumberFormat.getInstance().format(confirmedInt);
                                 textView_confirmed.setText(confirmed);
 
                                 int newConfirmedInt = Integer.parseInt(newConfirmed);
-                                newConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
+                                newConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
                                 textView_confirmed_new.setText("+" + newConfirmed);
 
                                 int activeInt = Integer.parseInt(active);
-                                active = String.valueOf(NumberFormat.getInstance().format(activeInt));
+                                active = NumberFormat.getInstance().format(activeInt);
                                 textView_active.setText(active);
 
                                 //We need to calculate new active cases since it doesn't exist in API
@@ -179,19 +179,19 @@ public class MainActivity extends AppCompatActivity {
                                 textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
 
                                 int recoveredInt = Integer.parseInt(recovered);
-                                recovered = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
+                                recovered = NumberFormat.getInstance().format(recoveredInt);
                                 textView_recovered.setText(recovered);
 
                                 int recoveredNewInt = Integer.parseInt(newRecovered);
-                                newRecovered = String.valueOf(NumberFormat.getInstance().format(recoveredNewInt));
+                                newRecovered = NumberFormat.getInstance().format(recoveredNewInt);
                                 textView_recovered_new.setText("+" + newRecovered);
 
                                 int deathsInt = Integer.parseInt(deaths);
-                                deaths = String.valueOf(NumberFormat.getInstance().format(deathsInt));
+                                deaths = NumberFormat.getInstance().format(deathsInt);
                                 textView_death.setText(deaths);
 
                                 int deathsNewInt = Integer.parseInt(newDeaths);
-                                newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
+                                newDeaths = NumberFormat.getInstance().format(deathsNewInt);
                                 textView_death_new.setText("+" + newDeaths);
 
                                 String dateFormat = formatDate(date, 1);
@@ -234,15 +234,15 @@ public class MainActivity extends AppCompatActivity {
                                     String confirmedNewCopy = newConfirmed;
 
                                     int confirmedInt = Integer.parseInt(confirmed);
-                                    confirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
+                                    confirmed = NumberFormat.getInstance().format(confirmedInt);
                                     textView_confirmed.setText(confirmed);
 
                                     int newConfirmedInt = Integer.parseInt(newConfirmed);
-                                    newConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
+                                    newConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
                                     textView_confirmed_new.setText("+" + newConfirmed);
 
                                     int activeInt = Integer.parseInt(active);
-                                    active = String.valueOf(NumberFormat.getInstance().format(activeInt));
+                                    active = NumberFormat.getInstance().format(activeInt);
                                     textView_active.setText(active);
 
                                     //We need to calculate new active cases since it doesn't exist in API
@@ -250,19 +250,19 @@ public class MainActivity extends AppCompatActivity {
                                     textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
 
                                     int recoveredInt = Integer.parseInt(recovered);
-                                    recovered = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
+                                    recovered = NumberFormat.getInstance().format(recoveredInt);
                                     textView_recovered.setText(recovered);
 
                                     int recoveredNewInt = Integer.parseInt(newRecovered);
-                                    newRecovered = String.valueOf(NumberFormat.getInstance().format(recoveredNewInt));
+                                    newRecovered = NumberFormat.getInstance().format(recoveredNewInt);
                                     textView_recovered_new.setText("+" + newRecovered);
 
                                     int deathsInt = Integer.parseInt(deaths);
-                                    deaths = String.valueOf(NumberFormat.getInstance().format(deathsInt));
+                                    deaths = NumberFormat.getInstance().format(deathsInt);
                                     textView_death.setText(deaths);
 
                                     int deathsNewInt = Integer.parseInt(newDeaths);
-                                    newDeaths = String.valueOf(NumberFormat.getInstance().format(deathsNewInt));
+                                    newDeaths = NumberFormat.getInstance().format(deathsNewInt);
                                     textView_death_new.setText("+" + newDeaths);
 
 
@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         totalTestsCopy = totalTests;
                         testsInt = Integer.parseInt(totalTests);
-                        totalTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
+                        totalTests = NumberFormat.getInstance().format(testsInt);
                         textView_tests.setText(totalTests);
 
 
@@ -362,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         totalTestsCopy = totalTests;
                         testsInt = Integer.parseInt(totalTests);
-                        totalTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
+                        totalTests = NumberFormat.getInstance().format(testsInt);
                         textView_tests.setText(totalTests);
 
                         if (oldTests.isEmpty()) {

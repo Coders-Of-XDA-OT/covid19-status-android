@@ -62,13 +62,13 @@ public class PerCountryData extends AppCompatActivity {
         String deceasedCopy = countryDeceased;
 
         int activeInt = Integer.parseInt(countryActive);
-        countryActive = String.valueOf(NumberFormat.getInstance().format(activeInt));
+        countryActive = NumberFormat.getInstance().format(activeInt);
 
         int recoveredInt = Integer.parseInt(countryRecovery);
-        countryRecovery = String.valueOf(NumberFormat.getInstance().format(recoveredInt));
+        countryRecovery = NumberFormat.getInstance().format(recoveredInt);
 
         int deceasedInt = Integer.parseInt(countryDeceased);
-        countryDeceased = String.valueOf(NumberFormat.getInstance().format(deceasedInt));
+        countryDeceased = NumberFormat.getInstance().format(deceasedInt);
 
         mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
         mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
