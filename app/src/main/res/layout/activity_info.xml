@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="15dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
@@ -111,7 +111,7 @@
         android:layout_marginTop="30dp"
         android:text="Credits"
         android:textColor="#fff"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -122,7 +122,7 @@
         android:layout_marginEnd="35dp"
         android:text="@string/credits"
         android:textColor="#fff"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -131,7 +131,7 @@
         android:layout_marginTop="15dp"
         android:text="Libraries"
         android:textColor="#fff"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -143,7 +143,7 @@
         android:layout_marginBottom="10dp"
         android:text="@string/libs"
         android:textColor="#fff"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
