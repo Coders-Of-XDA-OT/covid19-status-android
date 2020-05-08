@@ -2,10 +2,10 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/statewise_refresh"
+    android:id="@+id/countrywise_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StatewiseDataActivity">
+    tools:context=".CountrywiseDataActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         <EditText
             android:id="@+id/search_editText"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_margin="8dp"
             android:background="@drawable/edit_text_bg"
             android:drawableStart="@drawable/search_icon"
@@ -31,7 +31,7 @@
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/statewise_title_card"
+            android:id="@+id/countrywise_title_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -51,13 +51,14 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_weight="2"
                     android:gravity="start"
                     android:lines="1"
-                    android:text="State"
+                    android:text="Country"
                     android:textColor="@color/orange"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -68,13 +69,13 @@
                     android:lines="1"
                     android:text="Total Cases"
                     android:textColor="@color/yellow"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/statewise_recyclerview"
+            android:id="@+id/countrywise_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

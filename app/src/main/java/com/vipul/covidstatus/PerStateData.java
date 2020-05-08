@@ -29,6 +29,7 @@ public class PerStateData extends AppCompatActivity {
 
     TextView perStateConfirmed, perStateActive, perStateDeceased, perStateNewConfirmed, perStateNewRecovered, perStateNewDeceased, perStateUpdate, perStateRecovered, perstateName;
     PieChart mPieChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,15 +85,15 @@ public class PerStateData extends AppCompatActivity {
         perStateActive.setText(stateActive);
         perStateDeceased.setText(stateDeceased);
         perStateUpdate.setText(formatDate);
-        perStateNewConfirmed.setText("+"+stateNewConfirmed);
-        perStateNewRecovered.setText("+"+stateNewRecovered);
-        perStateNewDeceased.setText("+"+stateNewDeceased);
+        perStateNewConfirmed.setText("+" + stateNewConfirmed);
+        perStateNewRecovered.setText("+" + stateNewRecovered);
+        perStateNewDeceased.setText("+" + stateNewDeceased);
         perStateRecovered.setText(stateRecovery);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==android.R.id.home)
+        if (item.getItemId() == android.R.id.home)
             finish();
         return super.onOptionsItemSelected(item);
     }

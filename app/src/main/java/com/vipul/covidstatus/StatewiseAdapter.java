@@ -27,15 +27,15 @@ public class StatewiseAdapter extends RecyclerView.Adapter<StatewiseAdapter.View
     private static final String STATE_LAST_UPDATE = "stateLastUpdate";
     private static final String STATE_RECOVERED = "stateRecovered";
 
-    public  interface OnItemClickListner{
+    public interface OnItemClickListner {
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListner(OnItemClickListner listner){
+    public void setOnItemClickListner(OnItemClickListner listner) {
         mListner = listner;
     }
 
-    public StatewiseAdapter(Context context, ArrayList<StatewiseModel>statewiseModelArrayList){
+    public StatewiseAdapter(Context context, ArrayList<StatewiseModel> statewiseModelArrayList) {
         mContext = context;
         arrayList = statewiseModelArrayList;
     }
@@ -52,7 +52,7 @@ public class StatewiseAdapter extends RecyclerView.Adapter<StatewiseAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StatewiseModel clickedItem =arrayList.get(position);
+                StatewiseModel clickedItem = arrayList.get(position);
                 Intent perStateIntent = new Intent(mContext, PerStateData.class);
 
                 perStateIntent.putExtra(STATE_NAME, clickedItem.getState());
@@ -83,7 +83,7 @@ public class StatewiseAdapter extends RecyclerView.Adapter<StatewiseAdapter.View
         return arrayList.size();
     }
 
-    public void filterList(ArrayList<StatewiseModel>filteredList){
+    public void filterList(ArrayList<StatewiseModel> filteredList) {
         arrayList = filteredList;
         notifyDataSetChanged();
     }
@@ -101,9 +101,9 @@ public class StatewiseAdapter extends RecyclerView.Adapter<StatewiseAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mListner != null){
+                    if (mListner != null) {
                         int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
+                        if (position != RecyclerView.NO_POSITION) {
                             mListner.onItemClick(position);
                         }
                     }

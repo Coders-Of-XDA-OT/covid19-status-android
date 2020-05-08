@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +31,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class StatewiseDataActivity extends AppCompatActivity  implements StatewiseAdapter.OnItemClickListner {
+public class StatewiseDataActivity extends AppCompatActivity implements StatewiseAdapter.OnItemClickListner {
 
     public static final String STATE_NAME = "stateName";
     public static final String STATE_CONFIRMED = "stateConfirmed";
@@ -44,7 +45,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
     private RecyclerView recyclerView;
     private StatewiseAdapter statewiseAdapter;
-    private ArrayList<StatewiseModel>statewiseModelArrayList;
+    private ArrayList<StatewiseModel> statewiseModelArrayList;
     private RequestQueue requestQueue;
     ProgressDialog progressDialog;
     public static int confirmation = 0;
@@ -102,15 +103,15 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==android.R.id.home)
+        if (item.getItemId() == android.R.id.home)
             finish();
         return super.onOptionsItemSelected(item);
     }
 
-    private void filter(String text){
+    private void filter(String text) {
         ArrayList<StatewiseModel> filteredList = new ArrayList<>();
-        for (StatewiseModel item : statewiseModelArrayList){
-            if (item.getState().toLowerCase().contains(text.toLowerCase())){
+        for (StatewiseModel item : statewiseModelArrayList) {
+            if (item.getState().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
@@ -126,7 +127,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
                 try {
                     JSONArray jsonArray = response.getJSONArray("statewise");
                     statewiseModelArrayList.clear();
-                    for (int i=1; i<jsonArray.length(); i++){
+                    for (int i = 1; i < jsonArray.length(); i++) {
                         JSONObject statewise = jsonArray.getJSONObject(i);
 
                         String stateName = statewise.getString("state");
@@ -153,7 +154,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
                         stateNewDeceased = String.valueOf(NumberFormat.getInstance().format(stateNewDeceasedInt));
 
 
-                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed,stateActive, stateDeceased, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate, stateRecovered));
+                        statewiseModelArrayList.add(new StatewiseModel(stateName, stateConfirmed, stateActive, stateDeceased, stateNewConfirmed, stateNewRecovered, stateNewDeceased, stateLastUpdate, stateRecovered));
                     }
 
                     if (!testValue.isEmpty()) {
@@ -203,7 +204,8 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
         startActivity(perStateIntent);
     }
-    public void showProgressDialog(){
+
+    public void showProgressDialog() {
         progressDialog = new ProgressDialog(StatewiseDataActivity.this);
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);
@@ -213,7 +215,7 @@ public class StatewiseDataActivity extends AppCompatActivity  implements Statewi
 
             @Override
             public void run() {
-                if (confirmation!=1) {
+                if (confirmation != 1) {
                     progressDialog.cancel();
                     Toast.makeText(StatewiseDataActivity.this, "Internet slow/not available", Toast.LENGTH_SHORT).show();
                 }

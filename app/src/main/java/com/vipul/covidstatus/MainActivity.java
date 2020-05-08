@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     int newConfirmedInt = Integer.parseInt(newConfirmed);
                                     newConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
-                                    textView_confirmed_new.setText("+"+newConfirmed);
+                                    textView_confirmed_new.setText("+" + newConfirmed);
 
                                     int activeInt = Integer.parseInt(active);
                                     active = String.valueOf(NumberFormat.getInstance().format(activeInt));
@@ -300,18 +300,18 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public String formatDate(String date, int testCase){
+    public String formatDate(String date, int testCase) {
         Date mDate = null;
         String dateFormat;
         try {
             mDate = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.US).parse(date);
-            if (testCase == 0){
+            if (testCase == 0) {
                 dateFormat = new SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.US).format(mDate);
                 return dateFormat;
-            } else if (testCase == 1){
+            } else if (testCase == 1) {
                 dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.US).format(mDate);
                 return dateFormat;
-            } else if (testCase == 2){
+            } else if (testCase == 2) {
                 dateFormat = new SimpleDateFormat("hh:mm a", Locale.US).format(mDate);
                 return dateFormat;
             } else {
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void fetchTests(){
+    public void fetchTests() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String apiUrl = "https://api.covid19india.org/data.json";
         JsonObjectRequest jsonObjectRequestTests = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {

@@ -28,6 +28,7 @@ import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_RECOVERED;
 public class PerCountryData extends AppCompatActivity {
     TextView perCountryConfirmed, perCountryActive, perCountryDeceased, perCountryNewConfirmed, perCountryTests, perCountryNewDeceased, perCountryRecovered;
     PieChart mPieChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,7 @@ public class PerCountryData extends AppCompatActivity {
         perCountryTests = findViewById(R.id.percountry_tests_textView);
         perCountryNewDeceased = findViewById(R.id.percountry_death_new_textView);
         mPieChart = findViewById(R.id.piechart_percountry);
-        
+
         String activeCopy = countryActive;
         String recoveredCopy = countryRecovery;
         String deceasedCopy = countryDeceased;
@@ -79,15 +80,15 @@ public class PerCountryData extends AppCompatActivity {
         perCountryActive.append(countryActive);
         perCountryDeceased.append(countryDeceased);
         perCountryTests.append(countryTests);
-        perCountryNewConfirmed.append("+"+countryNewConfirmed);
-        perCountryNewDeceased.append("+"+countryNewDeceased);
+        perCountryNewConfirmed.append("+" + countryNewConfirmed);
+        perCountryNewDeceased.append("+" + countryNewDeceased);
         perCountryRecovered.append(countryRecovery);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==android.R.id.home)
+        if (item.getItemId() == android.R.id.home)
             finish();
         return super.onOptionsItemSelected(item);
     }

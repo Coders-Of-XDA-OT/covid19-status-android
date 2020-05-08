@@ -106,7 +106,7 @@ public class CountrywiseDataActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==android.R.id.home)
+        if (item.getItemId() == android.R.id.home)
             finish();
         return super.onOptionsItemSelected(item);
     }
@@ -128,57 +128,57 @@ public class CountrywiseDataActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
 
-                    try {
-                        countrywiseModelArrayList.clear();
-                        for (int i=0; i<response.length(); i++) {
-                            JSONObject jsonObject = response.getJSONObject(i);
+                try {
+                    countrywiseModelArrayList.clear();
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject jsonObject = response.getJSONObject(i);
 
-                            String countryName = jsonObject.getString("country");
-                            String countryConfirmed = jsonObject.getString("cases");
-                            String countryActive = jsonObject.getString("active");
-                            String countryRecovered = jsonObject.getString("recovered");
-                            String countryDeceased = jsonObject.getString("deaths");
-                            String countryNewConfirmed = jsonObject.getString("todayCases");
-                            String countryNewDeceased = jsonObject.getString("todayDeaths");
-                            String countryTests = jsonObject.getString("tests");
-                            JSONObject object = jsonObject.getJSONObject("countryInfo");
-                            String flagUrl = object.getString("flag");
-                            testValue = countryTests;
+                        String countryName = jsonObject.getString("country");
+                        String countryConfirmed = jsonObject.getString("cases");
+                        String countryActive = jsonObject.getString("active");
+                        String countryRecovered = jsonObject.getString("recovered");
+                        String countryDeceased = jsonObject.getString("deaths");
+                        String countryNewConfirmed = jsonObject.getString("todayCases");
+                        String countryNewDeceased = jsonObject.getString("todayDeaths");
+                        String countryTests = jsonObject.getString("tests");
+                        JSONObject object = jsonObject.getJSONObject("countryInfo");
+                        String flagUrl = object.getString("flag");
+                        testValue = countryTests;
 
-                            int confirmedInt = Integer.parseInt(countryConfirmed);
-                            countryConfirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
+                        int confirmedInt = Integer.parseInt(countryConfirmed);
+                        countryConfirmed = String.valueOf(NumberFormat.getInstance().format(confirmedInt));
 
-                            int newConfirmedInt = Integer.parseInt(countryNewConfirmed);
-                            countryNewConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
+                        int newConfirmedInt = Integer.parseInt(countryNewConfirmed);
+                        countryNewConfirmed = String.valueOf(NumberFormat.getInstance().format(newConfirmedInt));
 
-                            int newDeceasedInt = Integer.parseInt(countryNewDeceased);
-                            countryNewDeceased = String.valueOf(NumberFormat.getInstance().format(newDeceasedInt));
+                        int newDeceasedInt = Integer.parseInt(countryNewDeceased);
+                        countryNewDeceased = String.valueOf(NumberFormat.getInstance().format(newDeceasedInt));
 
-                            int testsInt = Integer.parseInt(countryTests);
-                            countryTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
+                        int testsInt = Integer.parseInt(countryTests);
+                        countryTests = String.valueOf(NumberFormat.getInstance().format(testsInt));
 
 
-                            countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl));
-                        }
-                            if (!testValue.isEmpty()) {
-                                Runnable progressRunnable = new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        progressDialog.cancel();
-                                        countrywiseAdapter = new CountrywiseAdapter(CountrywiseDataActivity.this, countrywiseModelArrayList);
-                                        recyclerView.setAdapter(countrywiseAdapter);
-                                        //countrywiseAdapter.setOnItemClickListner(CountrywiseDataActivity, this);
-                                    }
-                                };
-                                Handler pdCanceller = new Handler();
-                                pdCanceller.postDelayed(progressRunnable, 500);
-                                confirmation = 1;
-                            }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl));
                     }
+                    if (!testValue.isEmpty()) {
+                        Runnable progressRunnable = new Runnable() {
+
+                            @Override
+                            public void run() {
+                                progressDialog.cancel();
+                                countrywiseAdapter = new CountrywiseAdapter(CountrywiseDataActivity.this, countrywiseModelArrayList);
+                                recyclerView.setAdapter(countrywiseAdapter);
+                                //countrywiseAdapter.setOnItemClickListner(CountrywiseDataActivity, this);
+                            }
+                        };
+                        Handler pdCanceller = new Handler();
+                        pdCanceller.postDelayed(progressRunnable, 500);
+                        confirmation = 1;
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override

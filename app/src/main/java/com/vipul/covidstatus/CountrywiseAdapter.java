@@ -30,16 +30,16 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
     private static final String COUNTRY_FLAGURL = "flag";
     private static final String COUNTRY_RECOVERED = "recovered";
 
-    public  interface OnItemClickListner{
+    public interface OnItemClickListner {
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListner(OnItemClickListner listner){
+    public void setOnItemClickListner(OnItemClickListner listner) {
         mListner = listner;
     }
 
 
-    public CountrywiseAdapter(Context context, ArrayList<CountrywiseModel>countrywiseModelArrayList){
+    public CountrywiseAdapter(Context context, ArrayList<CountrywiseModel> countrywiseModelArrayList) {
         mContext = context;
         arrayList = countrywiseModelArrayList;
     }
@@ -57,7 +57,7 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CountrywiseModel clickedItem =arrayList.get(position);
+                CountrywiseModel clickedItem = arrayList.get(position);
                 Intent perCountryIntent = new Intent(mContext, PerCountryData.class);
 
                 perCountryIntent.putExtra(COUNTRY_NAME, clickedItem.getCountry());
@@ -90,7 +90,7 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
         return arrayList.size();
     }
 
-    public void filterList(ArrayList<CountrywiseModel>filteredList){
+    public void filterList(ArrayList<CountrywiseModel> filteredList) {
         arrayList = filteredList;
         notifyDataSetChanged();
     }
@@ -110,9 +110,9 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mListner != null){
+                    if (mListner != null) {
                         int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
+                        if (position != RecyclerView.NO_POSITION) {
                             mListner.onItemClick(position);
                         }
                     }
