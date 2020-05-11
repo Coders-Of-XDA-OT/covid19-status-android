@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#161625</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="cardBackground">#FE1D1D2F</color>
+    <color name="clickableCardBackground">#FFAAB0</color>
+    <color name="clickableCardBackgroundAlt">#ADFFC6</color>
+    <color name="clickableCardText">#FF1744</color>
+    <color name="clickableCardTextAlt">#4FAE7F</color>
     <color name="green">#7EC544</color>
     <color name="yellow">#FBC233</color>
     <color name="red">#F6404F</color>

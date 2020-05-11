@@ -456,7 +456,7 @@
                         android:layout_height="0dp"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
-                        app:cardBackgroundColor="@color/cardBackground"
+                        app:cardBackgroundColor="@color/clickableCardBackground"
                         app:cardCornerRadius="8dp">
 
                         <LinearLayout
@@ -474,7 +474,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="State Data"
-                                android:textColor="#ff1744"
+                                android:textColor="@color/clickableCardText"
                                 android:textSize="17sp" />
 
                         </LinearLayout>
@@ -487,7 +487,7 @@
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_marginStart="10dp"
-                        app:cardBackgroundColor="@color/cardBackground"
+                        app:cardBackgroundColor="@color/clickableCardBackgroundAlt"
                         app:cardCornerRadius="8dp">
 
                         <LinearLayout
@@ -505,7 +505,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="World Data"
-                                android:textColor="#69f0ae"
+                                android:textColor="@color/clickableCardTextAlt"
                                 android:textSize="17sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
