@@ -2,6 +2,7 @@ package com.vipul.covidstatus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -20,6 +21,7 @@ public class InfoActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle("About");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
     }
 

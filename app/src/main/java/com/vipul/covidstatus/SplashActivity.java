@@ -13,17 +13,18 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class SplashActivity extends AppCompatActivity {
-
-    private static int SPLASH_SCREEN_TIMEOUT = 1000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
         setContentView(R.layout.splash_activity);
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
+        int SPLASH_SCREEN_TIMEOUT = 1000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -2,6 +2,7 @@ package com.vipul.covidstatus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -33,6 +34,8 @@ public class PerCountryData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_per_country_data);
+
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
         Intent intent = getIntent();
         String countryName = intent.getStringExtra(COUNTRY_NAME);

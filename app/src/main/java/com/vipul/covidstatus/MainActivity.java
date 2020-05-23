@@ -2,6 +2,7 @@ package com.vipul.covidstatus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         textView_tests_new = findViewById(R.id.tests_new_textView);
         swipeRefreshLayout = findViewById(R.id.main_refreshLayout);
         textview_time = findViewById(R.id.time_textView);
+
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
         showProgressDialog();
         fetchData();

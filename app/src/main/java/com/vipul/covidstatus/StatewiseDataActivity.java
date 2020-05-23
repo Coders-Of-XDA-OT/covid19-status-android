@@ -2,6 +2,7 @@ package com.vipul.covidstatus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -64,6 +65,8 @@ public class StatewiseDataActivity extends AppCompatActivity implements Statewis
         recyclerView = findViewById(R.id.statewise_recyclerview);
         swipeRefreshLayout = findViewById(R.id.statewise_refresh);
         search = findViewById(R.id.search_editText);
+
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
