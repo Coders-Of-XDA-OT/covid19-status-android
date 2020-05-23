@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.2"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -120,7 +120,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="2.2">
 
         <GridLayout
@@ -128,8 +128,8 @@
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:rowCount="2">
 
             <androidx.cardview.widget.CardView
@@ -137,7 +137,7 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="8dp"
                 app:cardBackgroundColor="@color/cardBackground"
                 app:cardCornerRadius="8dp">
 
@@ -225,8 +225,8 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 app:cardBackgroundColor="@color/cardBackground"
                 app:cardCornerRadius="8dp">
 
@@ -271,7 +271,7 @@
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 app:cardBackgroundColor="@color/cardBackground"
                 app:cardCornerRadius="8dp">
 
@@ -316,16 +316,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="0.6"
         android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             app:cardBackgroundColor="@color/cardBackground"
             app:cardCornerRadius="8dp">
 
@@ -333,7 +333,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
