@@ -73,19 +73,25 @@ public class PerCountryData extends AppCompatActivity {
         int deceasedInt = Integer.parseInt(countryDeceased);
         countryDeceased = NumberFormat.getInstance().format(deceasedInt);
 
+        int confirmedInt = Integer.parseInt(countryConfirmed);
+        countryConfirmed = NumberFormat.getInstance().format(confirmedInt);
+
+        int testsInt = Integer.parseInt(countryTests);
+        countryTests = NumberFormat.getInstance().format(testsInt);
+
         mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
         mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
         mPieChart.addPieSlice(new PieModel("Deceased", Integer.parseInt(deceasedCopy), Color.parseColor("#F6404F")));
 
         mPieChart.startAnimation();
 
-        perCountryConfirmed.append(countryConfirmed);
-        perCountryActive.append(countryActive);
-        perCountryDeceased.append(countryDeceased);
-        perCountryTests.append(countryTests);
-        perCountryNewConfirmed.append("+" + countryNewConfirmed);
-        perCountryNewDeceased.append("+" + countryNewDeceased);
-        perCountryRecovered.append(countryRecovery);
+        perCountryConfirmed.setText(countryConfirmed);
+        perCountryActive.setText(countryActive);
+        perCountryDeceased.setText(countryDeceased);
+        perCountryTests.setText(countryTests);
+        perCountryNewConfirmed.setText("+" + countryNewConfirmed);
+        perCountryNewDeceased.setText("+" + countryNewDeceased);
+        perCountryRecovered.setText(countryRecovery);
 
     }
 

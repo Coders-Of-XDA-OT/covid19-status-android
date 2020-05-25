@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.ViewHolder> {
@@ -75,12 +76,12 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
             }
         });
 
-
         CountrywiseModel currentItem = arrayList.get(position);
         String countryName = currentItem.getCountry();
         String countryTotal = currentItem.getConfirmed();
         String countryFlag = currentItem.getFlag();
-        holder.countryTotalCases.setText(countryTotal);
+        int countryTotalInt = Integer.parseInt(countryTotal);
+        holder.countryTotalCases.setText(NumberFormat.getInstance().format(countryTotalInt));
         holder.countryName.setText(countryName);
         Glide.with(mContext).load(countryFlag).into(holder.flagImage);
     }

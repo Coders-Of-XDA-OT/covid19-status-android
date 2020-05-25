@@ -31,6 +31,9 @@ import org.json.JSONObject;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
 import java.util.Objects;
 
 public class CountrywiseDataActivity extends AppCompatActivity {
@@ -147,8 +150,7 @@ public class CountrywiseDataActivity extends AppCompatActivity {
                         String flagUrl = object.getString("flag");
                         testValue = countryTests;
 
-                        int confirmedInt = Integer.parseInt(countryConfirmed);
-                        countryConfirmed = NumberFormat.getInstance().format(confirmedInt);
+                        countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl));
 
                         int newConfirmedInt = Integer.parseInt(countryNewConfirmed);
                         countryNewConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
@@ -156,11 +158,17 @@ public class CountrywiseDataActivity extends AppCompatActivity {
                         int newDeceasedInt = Integer.parseInt(countryNewDeceased);
                         countryNewDeceased = NumberFormat.getInstance().format(newDeceasedInt);
 
-                        int testsInt = Integer.parseInt(countryTests);
-                        countryTests = NumberFormat.getInstance().format(testsInt);
+                        Collections.sort(countrywiseModelArrayList, new Comparator<CountrywiseModel>() {
+                            @Override
+                            public int compare(CountrywiseModel o1, CountrywiseModel o2) {
+                                if (Integer.parseInt(o1.getConfirmed())>Integer.parseInt(o2.getConfirmed())){
+                                    return -1;
+                                } else {
+                                    return 1;
+                                }
+                            }
+                        });
 
-
-                        countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl));
                     }
                     if (!testValue.isEmpty()) {
                         Runnable progressRunnable = new Runnable() {
