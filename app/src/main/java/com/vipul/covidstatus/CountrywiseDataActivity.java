@@ -158,6 +158,7 @@ public class CountrywiseDataActivity extends AppCompatActivity {
                         int newDeceasedInt = Integer.parseInt(countryNewDeceased);
                         countryNewDeceased = NumberFormat.getInstance().format(newDeceasedInt);
 
+
                         Collections.sort(countrywiseModelArrayList, new Comparator<CountrywiseModel>() {
                             @Override
                             public int compare(CountrywiseModel o1, CountrywiseModel o2) {

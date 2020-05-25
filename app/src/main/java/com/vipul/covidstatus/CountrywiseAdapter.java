@@ -80,7 +80,9 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
         String countryName = currentItem.getCountry();
         String countryTotal = currentItem.getConfirmed();
         String countryFlag = currentItem.getFlag();
+        String countryRank = String.valueOf(position+1);
         int countryTotalInt = Integer.parseInt(countryTotal);
+        holder.rankTextView.setText(countryRank+".");
         holder.countryTotalCases.setText(NumberFormat.getInstance().format(countryTotalInt));
         holder.countryName.setText(countryName);
         Glide.with(mContext).load(countryFlag).into(holder.flagImage);
@@ -98,7 +100,7 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView countryName, countryTotalCases;
+        TextView countryName, countryTotalCases, rankTextView;
         ImageView flagImage;
 
         public ViewHolder(View itemView) {
@@ -107,6 +109,7 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
             countryName = itemView.findViewById(R.id.country_name_textview);
             countryTotalCases = itemView.findViewById(R.id.country_confirmed_textview);
             flagImage = itemView.findViewById(R.id.flag_image);
+            rankTextView = itemView.findViewById(R.id.country_rank);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
