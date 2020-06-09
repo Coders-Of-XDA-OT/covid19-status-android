@@ -1,5 +1,6 @@
 package com.vipul.covidstatus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +61,9 @@ public class WorldDataActivity extends AppCompatActivity {
         textView_death_new = findViewById(R.id.world_death_new_textView);
         textView_tests = findViewById(R.id.world_tests_textView);
         swipeRefreshLayout = findViewById(R.id.main_refreshLayout);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Covid-19 Status (World)");
 
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         showProgressDialog();
@@ -242,6 +247,13 @@ public class WorldDataActivity extends AppCompatActivity {
         Handler pdCanceller = new Handler();
         pdCanceller.postDelayed(progressRunnable, 8000);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 
     public void openCountryData(View view) {
