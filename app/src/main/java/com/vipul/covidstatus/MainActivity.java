@@ -417,7 +417,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMoreInfo(View view) {
-        Intent intent = new Intent(this, CountrywiseDataActivity.class);
+        Intent intent = new Intent(this, WorldDataActivity.class);
         startActivity(intent);
     }
 
