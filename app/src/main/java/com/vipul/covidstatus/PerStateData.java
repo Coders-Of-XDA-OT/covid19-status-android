@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import org.eazegraph.lib.charts.PieChart;
@@ -30,6 +31,7 @@ public class PerStateData extends AppCompatActivity {
 
     TextView perStateConfirmed, perStateActive, perStateDeceased, perStateNewConfirmed, perStateNewRecovered, perStateNewDeceased, perStateUpdate, perStateRecovered, perstateName;
     PieChart mPieChart;
+    String stateName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class PerStateData extends AppCompatActivity {
         setContentView(R.layout.activity_per_state_data);
 
         Intent intent = getIntent();
-        String stateName = intent.getStringExtra(STATE_NAME);
+        stateName = intent.getStringExtra(STATE_NAME);
         String stateConfirmed = intent.getStringExtra(STATE_CONFIRMED);
         String stateActive = intent.getStringExtra(STATE_ACTIVE);
         String stateDeceased = intent.getStringExtra(STATE_DECEASED);
@@ -99,5 +101,11 @@ public class PerStateData extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home)
             finish();
         return super.onOptionsItemSelected(item);
+    }
+
+    public void openDistrictData(View view){
+        Intent intent = new Intent(this, DistrictwiseDataActivity.class);
+        intent.putExtra(STATE_NAME, stateName);
+        startActivity(intent);
     }
 }
