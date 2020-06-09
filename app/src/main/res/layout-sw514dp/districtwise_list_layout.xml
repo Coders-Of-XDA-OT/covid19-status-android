@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:elevation="0dp"
+    app:cardBackgroundColor="@color/cardBackground"
+    app:cardCornerRadius="8dp"
+    app:cardMaxElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/district_name_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="2"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:lines="1"
+            android:text="Test"
+            android:textColor="#fff"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/district_confirmed_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="Test"
+            android:textColor="@color/yellow"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

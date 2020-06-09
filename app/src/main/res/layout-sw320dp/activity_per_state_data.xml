@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.2"
+        android:layout_weight="1.1"
         android:paddingLeft="6dp"
         android:paddingRight="6dp">
 
@@ -124,7 +124,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="6dp"
-        android:layout_weight="2.2">
+        android:layout_weight="2">
 
         <GridLayout
             android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                         android:gravity="center"
                         android:text="Confirmed"
                         android:textColor="@color/yellow"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/perstate_confirmed_textview"
@@ -165,7 +165,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="21sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_confirmed_new_textView"
@@ -174,7 +174,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/yellow"
-                        android:textSize="11sp" />
+                        android:textSize="10sp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -199,7 +199,7 @@
                         android:gravity="center"
                         android:text="Active"
                         android:textColor="@color/blue"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/perstate_active_textView"
@@ -208,7 +208,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="21sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_active_new_textView"
@@ -217,7 +217,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/blue"
-                        android:textSize="11sp" />
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 
@@ -245,7 +245,7 @@
                         android:gravity="center"
                         android:text="Recovered"
                         android:textColor="@color/green"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/perstate_recovered_textView"
@@ -254,7 +254,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="21sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_recovered_new_textView"
@@ -263,7 +263,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/green"
-                        android:textSize="11sp" />
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 
@@ -290,7 +290,7 @@
                         android:gravity="center"
                         android:text="Deceased"
                         android:textColor="@color/red"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/perstate_death_textView"
@@ -299,7 +299,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="21sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_death_new_textView"
@@ -308,7 +308,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/red"
-                        android:textSize="11sp" />
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 
@@ -319,8 +319,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="6dp"
-        android:layout_weight="0.6"
+        android:layout_weight="0.55"
         android:orientation="vertical"
         android:paddingLeft="6dp"
         android:paddingRight="6dp">
@@ -343,7 +342,7 @@
                     android:layout_height="wrap_content"
                     android:text="Last update"
                     android:textColor="@color/orange"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/perstate_lastupdate_textView"
@@ -353,6 +352,42 @@
                     android:gravity="center"
                     android:textColor="#fff"
                     android:textSize="14sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="0.35"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/cardBackground"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="openDistrictData">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="District Data"
+                    android:textColor="@color/pink"
+                    android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

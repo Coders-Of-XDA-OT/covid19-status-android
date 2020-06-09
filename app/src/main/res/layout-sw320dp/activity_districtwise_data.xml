@@ -57,7 +57,7 @@
                     android:lines="1"
                     android:text="District/Place"
                     android:textColor="@color/orange"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -68,7 +68,7 @@
                     android:lines="1"
                     android:text="Total Cases"
                     android:textColor="@color/yellow"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

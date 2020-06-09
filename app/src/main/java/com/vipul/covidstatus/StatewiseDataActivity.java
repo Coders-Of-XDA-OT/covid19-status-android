@@ -54,6 +54,7 @@ public class StatewiseDataActivity extends AppCompatActivity implements Statewis
     public static boolean isRefreshed;
     SwipeRefreshLayout swipeRefreshLayout;
     EditText search;
+    String stateLastUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,7 +142,7 @@ public class StatewiseDataActivity extends AppCompatActivity implements Statewis
                         String stateNewConfirmed = statewise.getString("deltaconfirmed");
                         String stateNewRecovered = statewise.getString("deltarecovered");
                         String stateNewDeceased = statewise.getString("deltadeaths");
-                        String stateLastUpdate = statewise.getString("lastupdatedtime");
+                        stateLastUpdate = statewise.getString("lastupdatedtime");
                         testValue = stateLastUpdate;
 
                         int stateConfirmedInt = Integer.parseInt(stateConfirmed);

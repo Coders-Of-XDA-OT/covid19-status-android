@@ -14,6 +14,7 @@
         android:orientation="vertical"
         android:weightSum="4">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -50,16 +51,17 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:orientation="vertical"
-                        android:paddingStart="30dp">
+                        android:paddingStart="32dp"
+                        tools:ignore="RtlSymmetry">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="17dp"
+                            android:layout_height="20dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical">
 
                             <View
-                                android:layout_width="17dp"
+                                android:layout_width="20dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/blue_pie" />
 
@@ -68,22 +70,20 @@
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="10dp"
                                 android:text="Active"
-                                android:textColor="#fff"
-                                android:textSize="13sp" />
+                                android:textColor="#fff" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="17dp"
+                            android:layout_height="20dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical">
 
                             <View
-                                android:layout_width="17dp"
+                                android:layout_width="20dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/green_pie"
-                                android:textSize="13sp" />
+                                android:background="@color/green_pie" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -96,12 +96,12 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="17dp"
+                            android:layout_height="20dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical">
 
                             <View
-                                android:layout_width="17dp"
+                                android:layout_width="20dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/red" />
 
@@ -110,8 +110,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="10dp"
                                 android:text="Deceased"
-                                android:textColor="#fff"
-                                android:textSize="13sp" />
+                                android:textColor="#fff" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -160,7 +159,7 @@
                             android:gravity="center"
                             android:text="Confirmed"
                             android:textColor="@color/yellow"
-                            android:textSize="17sp" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/confirmed_textView"
@@ -169,7 +168,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="#fff"
-                            android:textSize="25sp" />
+                            android:textSize="30sp" />
 
                         <TextView
                             android:id="@+id/confirmed_new_textView"
@@ -178,7 +177,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="@color/yellow"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -205,7 +204,7 @@
                             android:gravity="center"
                             android:text="Active"
                             android:textColor="@color/blue"
-                            android:textSize="17sp" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/active_textView"
@@ -214,7 +213,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="#fff"
-                            android:textSize="25sp" />
+                            android:textSize="30sp" />
 
                         <TextView
                             android:id="@+id/active_new_textView"
@@ -223,7 +222,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="@color/blue"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
@@ -236,7 +235,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginTop="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
                     app:cardBackgroundColor="@color/cardBackground"
                     app:cardCornerRadius="8dp">
 
@@ -253,7 +252,7 @@
                             android:gravity="center"
                             android:text="Recovered"
                             android:textColor="@color/green"
-                            android:textSize="17sp" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/recovered_textView"
@@ -262,7 +261,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="#fff"
-                            android:textSize="25sp" />
+                            android:textSize="30sp" />
 
                         <TextView
                             android:id="@+id/recovered_new_textView"
@@ -271,7 +270,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="@color/green"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
@@ -300,7 +299,7 @@
                             android:gravity="center"
                             android:text="Deceased"
                             android:textColor="@color/red"
-                            android:textSize="17sp" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/death_textView"
@@ -309,7 +308,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="#fff"
-                            android:textSize="25sp" />
+                            android:textSize="30sp" />
 
                         <TextView
                             android:id="@+id/death_new_textView"
@@ -318,7 +317,7 @@
                             android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:textColor="@color/red"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
@@ -369,7 +368,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Samples tested"
                                 android:textColor="@color/pink"
-                                android:textSize="17sp" />
+                                android:textSize="20sp" />
 
                             <TextView
                                 android:id="@+id/tests_textView"
@@ -377,7 +376,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:textColor="#fff"
-                                android:textSize="25sp" />
+                                android:textSize="29sp" />
 
                             <TextView
                                 android:id="@+id/tests_new_textView"
@@ -386,7 +385,7 @@
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
                                 android:textColor="@color/pink"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -397,7 +396,7 @@
                         android:layout_height="0dp"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         app:cardBackgroundColor="@color/cardBackground"
                         app:cardCornerRadius="8dp">
 
@@ -412,7 +411,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Last update"
                                 android:textColor="@color/orange"
-                                android:textSize="17sp" />
+                                android:textSize="20sp" />
 
                             <TextView
                                 android:id="@+id/time_textView"
@@ -421,7 +420,7 @@
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
                                 android:textColor="#fff"
-                                android:textSize="25sp" />
+                                android:textSize="29sp" />
 
                             <TextView
                                 android:id="@+id/date_textView"
@@ -430,7 +429,7 @@
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
                                 android:textColor="#fff"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -476,7 +475,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="State Data"
                                 android:textColor="#ff1744"
-                                android:textSize="15sp" />
+                                android:textSize="17sp" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -507,7 +506,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="World Data"
                                 android:textColor="#69f0ae"
-                                android:textSize="15sp" />
+                                android:textSize="17sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 

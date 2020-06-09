@@ -150,7 +150,7 @@
                         android:gravity="center"
                         android:text="Confirmed"
                         android:textColor="@color/yellow"
-                        android:textSize="18sp" />
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/percountry_confirmed_textview"
@@ -159,7 +159,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="25sp" />
 
                     <TextView
                         android:id="@+id/percountry_confirmed_new_textView"
@@ -168,7 +168,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/yellow"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -193,7 +193,7 @@
                         android:gravity="center"
                         android:text="Active"
                         android:textColor="@color/blue"
-                        android:textSize="18sp" />
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/percountry_active_textView"
@@ -202,7 +202,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="25sp" />
 
                     <TextView
                         android:id="@+id/percountry_active_new_textView"
@@ -211,7 +211,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/blue"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -239,7 +239,7 @@
                         android:gravity="center"
                         android:text="Recovered"
                         android:textColor="@color/green"
-                        android:textSize="18sp" />
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/percountry_recovered_textView"
@@ -248,7 +248,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -257,7 +257,7 @@
                         android:gravity="center"
                         android:text=" "
                         android:textColor="@color/red"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -284,7 +284,7 @@
                         android:gravity="center"
                         android:text="Deceased"
                         android:textColor="@color/red"
-                        android:textSize="18sp" />
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/percountry_death_textView"
@@ -293,7 +293,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="25sp" />
 
                     <TextView
                         android:id="@+id/percountry_death_new_textView"
@@ -302,7 +302,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="@color/red"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -338,7 +338,7 @@
                     android:layout_height="wrap_content"
                     android:text="Total Tests"
                     android:textColor="@color/orange"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/percountry_tests_textView"

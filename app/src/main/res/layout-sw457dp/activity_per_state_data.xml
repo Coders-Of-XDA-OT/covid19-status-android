@@ -150,7 +150,7 @@
                         android:gravity="center"
                         android:text="Confirmed"
                         android:textColor="@color/yellow"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_confirmed_textview"
@@ -159,7 +159,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/perstate_confirmed_new_textView"
@@ -193,7 +193,7 @@
                         android:gravity="center"
                         android:text="Active"
                         android:textColor="@color/blue"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_active_textView"
@@ -202,7 +202,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/perstate_active_new_textView"
@@ -239,7 +239,7 @@
                         android:gravity="center"
                         android:text="Recovered"
                         android:textColor="@color/green"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_recovered_textView"
@@ -248,7 +248,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/perstate_recovered_new_textView"
@@ -284,7 +284,7 @@
                         android:gravity="center"
                         android:text="Deceased"
                         android:textColor="@color/red"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/perstate_death_textView"
@@ -293,7 +293,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:textColor="#fff"
-                        android:textSize="35sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/perstate_death_new_textView"
@@ -337,7 +337,7 @@
                     android:layout_height="wrap_content"
                     android:text="Last update"
                     android:textColor="@color/orange"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/perstate_lastupdate_textView"
@@ -346,7 +346,7 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:textColor="#fff"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -366,10 +366,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             app:cardBackgroundColor="@color/cardBackground"
-            app:cardCornerRadius="8dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true">
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -377,6 +374,9 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="10dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="openDistrictData">
 
                 <TextView
@@ -384,7 +384,7 @@
                     android:layout_height="wrap_content"
                     android:text="District Data"
                     android:textColor="@color/pink"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

@@ -16,7 +16,7 @@
         <EditText
             android:id="@+id/search_editText"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:layout_margin="8dp"
             android:background="@drawable/edit_text_bg"
             android:drawableStart="@drawable/search_icon"
@@ -57,7 +57,7 @@
                     android:lines="1"
                     android:text="District/Place"
                     android:textColor="@color/orange"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -68,7 +68,7 @@
                     android:lines="1"
                     android:text="Total Cases"
                     android:textColor="@color/yellow"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
