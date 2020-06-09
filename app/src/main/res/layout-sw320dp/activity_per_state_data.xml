@@ -14,7 +14,8 @@
         android:layout_height="0dp"
         android:layout_weight="1.1"
         android:paddingLeft="6dp"
-        android:paddingRight="6dp">
+        android:paddingRight="6dp"
+        android:paddingTop="6dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
