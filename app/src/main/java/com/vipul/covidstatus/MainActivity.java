@@ -177,9 +177,9 @@ public class MainActivity extends AppCompatActivity {
                                 active = NumberFormat.getInstance().format(activeInt);
                                 textView_active.setText(active);
 
-                                //We need to calculate new active cases since it doesn't exist in API
-                                int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-                                textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
+//                                //We need to calculate new active cases since it doesn't exist in API
+//                                int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
+//                                textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
 
                                 int recoveredInt = Integer.parseInt(recovered);
                                 recovered = NumberFormat.getInstance().format(recoveredInt);
@@ -248,9 +248,9 @@ public class MainActivity extends AppCompatActivity {
                                     active = NumberFormat.getInstance().format(activeInt);
                                     textView_active.setText(active);
 
-                                    //We need to calculate new active cases since it doesn't exist in API
-                                    int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-                                    textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
+//                                    //We need to calculate new active cases since it doesn't exist in API
+//                                    int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
+//                                    textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
 
                                     int recoveredInt = Integer.parseInt(recovered);
                                     recovered = NumberFormat.getInstance().format(recoveredInt);
