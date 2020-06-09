@@ -384,6 +384,9 @@
                 android:onClick="openDistrictData">
 
                 <TextView
+                    android:id="@+id/district_data_title"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="District Data"

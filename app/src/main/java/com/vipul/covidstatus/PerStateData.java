@@ -59,6 +59,7 @@ public class PerStateData extends AppCompatActivity {
         perStateNewConfirmed = findViewById(R.id.perstate_confirmed_new_textView);
         perStateNewRecovered = findViewById(R.id.perstate_recovered_new_textView);
         perStateNewDeceased = findViewById(R.id.perstate_death_new_textView);
+        perstateName = findViewById(R.id.district_data_title);
         mPieChart = findViewById(R.id.piechart_perstate);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -95,6 +96,7 @@ public class PerStateData extends AppCompatActivity {
         perStateNewRecovered.setText("+" + stateNewRecovered);
         perStateNewDeceased.setText("+" + stateNewDeceased);
         perStateRecovered.setText(stateRecovery);
+        perstateName.setText("District data of "+stateName);
     }
 
     @Override
