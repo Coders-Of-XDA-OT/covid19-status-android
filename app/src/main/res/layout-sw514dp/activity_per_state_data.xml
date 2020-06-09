@@ -341,7 +341,7 @@
                     android:layout_height="wrap_content"
                     android:text="Last update"
                     android:textColor="@color/orange"
-                    android:textSize="23sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/perstate_lastupdate_textView"
@@ -350,7 +350,7 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:textColor="#fff"
-                    android:textSize="20sp" />
+                    android:textSize="22sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -391,7 +391,7 @@
                     android:layout_height="wrap_content"
                     android:text="District Data"
                     android:textColor="@color/pink"
-                    android:textSize="23sp" />
+                    android:textSize="19sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
