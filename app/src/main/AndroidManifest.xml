@@ -4,6 +4,7 @@
     package="com.vipul.covidstatus">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.screen.portrait" />
 
     <application
@@ -13,25 +14,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InfoActivity" android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".PerCountryData" android:screenOrientation="portrait"
+        <activity
+            android:name=".InfoActivity"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".CountrywiseDataActivity" android:screenOrientation="portrait"
+        <activity
+            android:name=".PerCountryData"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".PerStateData" android:screenOrientation="portrait"
+        <activity
+            android:name=".CountrywiseDataActivity"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".StatewiseDataActivity" android:screenOrientation="portrait"
+        <activity
+            android:name=".PerStateData"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".MainActivity" android:screenOrientation="portrait"
+        <activity
+            android:name=".StatewiseDataActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/AppTheme2"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
