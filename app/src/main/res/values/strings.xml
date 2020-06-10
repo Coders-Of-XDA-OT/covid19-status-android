@@ -15,13 +15,11 @@
 
 
     <!--App version-->
-    <string name="version">1.0</string>
+    <string name="version">2.0</string>
 
 
     <!--App changelog-->
-    <string name="changelogTitle">Covid-19 Status Test:</string>
-    <string name="changelog">\u2022 <b>New! </b>Added 69 new bugs to fix later.
-        \n\u2022 <b>Fix! </b>Did not fix anything.
-        \n\u2022 <b>Improved! </b>Lots of things bruh.
+    <string name="changelogTitle">Covid-19 Status v2.0:</string>
+    <string name="changelog">\u2022 Added district wise data.\n\u2022 Sorted global data according to cases.\n\u2022 Added total cases screen for global data.\n\u2022 Fix navbar colour.\n\u2022 Added update notifier for new updates.\n\u2022 Added changelog alert dialog when app is opened first time.
     </string>
 </resources>
