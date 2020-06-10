@@ -1,13 +1,16 @@
 package com.vipul.covidstatus;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public static boolean isRefreshed;
     private long backPressTime;
     private Toast backToast;
+    String version;
 
     TextView textView_confirmed, textView_confirmed_new, textView_active, textView_active_new, textView_recovered, textView_recovered_new, textView_death, textView_death_new, textView_tests, textView_date, textView_tests_new, textview_time;
     ProgressDialog progressDialog;
@@ -66,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        version = String.valueOf(R.string.version);
+        SharedPreferences sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        boolean isFirstStart = sharedPreferences.getBoolean("initialStart", true);
+        String appVersion = sharedPreferences.getString("appVersion", version);
+        if (isFirstStart || !appVersion.equals(BuildConfig.VERSION_NAME)){
+            showChanges();
+        }
 
         textView_confirmed = findViewById(R.id.confirmed_textView);
         textView_confirmed_new = findViewById(R.id.confirmed_new_textView);
@@ -96,6 +107,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showChanges(){
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.changelogTitle)
+                .setMessage(R.string.changelog)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false)
+                .create().show();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("initialStart", false);
+        editor.putString("appVersion", BuildConfig.VERSION_NAME);
+        editor.apply();
     }
 
     @Override
