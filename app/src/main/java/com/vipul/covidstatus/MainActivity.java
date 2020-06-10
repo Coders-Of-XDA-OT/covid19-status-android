@@ -483,7 +483,7 @@ public class MainActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     }
                                 })
-                                .setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+                                .setNegativeButton("Not now", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         dialog.dismiss();
