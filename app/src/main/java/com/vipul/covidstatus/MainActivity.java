@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
     private long backPressTime;
     private Toast backToast;
     String version;
+    String updateVersion;
+    String updateUrl;
+    String updateChanges;
 
     TextView textView_confirmed, textView_confirmed_new, textView_active, textView_active_new, textView_recovered, textView_recovered_new, textView_death, textView_death_new, textView_tests, textView_date, textView_tests_new, textview_time;
     ProgressDialog progressDialog;
@@ -74,9 +78,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
         boolean isFirstStart = sharedPreferences.getBoolean("initialStart", true);
         String appVersion = sharedPreferences.getString("appVersion", version);
-        if (isFirstStart || !appVersion.equals(BuildConfig.VERSION_NAME)){
-            showChanges();
-        }
 
         textView_confirmed = findViewById(R.id.confirmed_textView);
         textView_confirmed_new = findViewById(R.id.confirmed_new_textView);
@@ -95,8 +96,13 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         Objects.requireNonNull(getSupportActionBar()).setTitle("Covid-19 Status (India)");
 
+        fetchUpdate();
         showProgressDialog();
         fetchData();
+        if (isFirstStart || !appVersion.equals(BuildConfig.VERSION_NAME)){
+            showChanges();
+        }
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -451,6 +457,52 @@ public class MainActivity extends AppCompatActivity {
     public void openMoreInfo(View view) {
         Intent intent = new Intent(this, WorldDataActivity.class);
         startActivity(intent);
+    }
+
+    public void fetchUpdate(){
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String apiUrl = "https://vipul-api.netlify.app/api/version.json";
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    updateVersion = response.getString("version");
+                    updateUrl = response.getString("url");
+                    updateChanges = response.getString("changes");
+
+                    if (!updateVersion.equals(String.valueOf(BuildConfig.VERSION_NAME))){
+                        new AlertDialog.Builder(MainActivity.this)
+                                .setTitle("v"+updateVersion+" update available!")
+                                .setMessage(updateChanges)
+                                .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                                        intent.setData(Uri.parse(updateUrl));
+                                        startActivity(intent);
+                                    }
+                                })
+                                .setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .setCancelable(false)
+                                .create().show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
     }
 
 }
