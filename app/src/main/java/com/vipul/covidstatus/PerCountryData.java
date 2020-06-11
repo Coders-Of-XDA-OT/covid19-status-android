@@ -21,13 +21,14 @@ import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_NAME;
 import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_ACTIVE;
 import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_DECEASED;
 import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_NEW_CONFIRMED;
+import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_NEW_RECOVERED;
 import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_TESTS;
 import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_NEW_DECEASED;
 import static com.vipul.covidstatus.CountrywiseDataActivity.COUNTRY_RECOVERED;
 
 
 public class PerCountryData extends AppCompatActivity {
-    TextView perCountryConfirmed, perCountryActive, perCountryDeceased, perCountryNewConfirmed, perCountryTests, perCountryNewDeceased, perCountryRecovered;
+    TextView perCountryConfirmed, perCountryActive, perCountryDeceased, perCountryNewConfirmed, perCountryTests, perCountryNewDeceased, perCountryRecovered, perCountryNewRecovered;
     PieChart mPieChart;
 
     @Override
@@ -46,6 +47,7 @@ public class PerCountryData extends AppCompatActivity {
         String countryNewConfirmed = intent.getStringExtra(COUNTRY_NEW_CONFIRMED);
         String countryNewDeceased = intent.getStringExtra(COUNTRY_NEW_DECEASED);
         String countryTests = intent.getStringExtra(COUNTRY_TESTS);
+        String countryNewRecovered = intent.getStringExtra(COUNTRY_NEW_RECOVERED);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -59,6 +61,7 @@ public class PerCountryData extends AppCompatActivity {
         perCountryTests = findViewById(R.id.percountry_tests_textView);
         perCountryNewDeceased = findViewById(R.id.percountry_death_new_textView);
         mPieChart = findViewById(R.id.piechart_percountry);
+        perCountryNewRecovered = findViewById(R.id.percountry_recovered_new_textView);
 
         String activeCopy = countryActive;
         String recoveredCopy = countryRecovery;
@@ -92,6 +95,7 @@ public class PerCountryData extends AppCompatActivity {
         perCountryNewConfirmed.setText("+" + countryNewConfirmed);
         perCountryNewDeceased.setText("+" + countryNewDeceased);
         perCountryRecovered.setText(countryRecovery);
+        perCountryNewRecovered.setText("+"+countryNewRecovered);
 
     }
 

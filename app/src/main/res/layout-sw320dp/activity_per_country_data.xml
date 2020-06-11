@@ -258,12 +258,12 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/percountry_recovered_new_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text=" "
-                        android:textColor="@color/red"
+                        android:textColor="@color/green"
                         android:textSize="10sp" />
 
                 </LinearLayout>

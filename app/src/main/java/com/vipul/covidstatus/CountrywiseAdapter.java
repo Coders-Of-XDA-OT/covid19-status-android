@@ -30,6 +30,7 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
     private static final String COUNTRY_NEW_DECEASED = "todayDeaths";
     private static final String COUNTRY_FLAGURL = "flag";
     private static final String COUNTRY_RECOVERED = "recovered";
+    public static final String COUNTRY_NEW_RECOVERED = "todayRecovered";
 
     public interface OnItemClickListner {
         void onItemClick(int position);
@@ -70,6 +71,7 @@ public class CountrywiseAdapter extends RecyclerView.Adapter<CountrywiseAdapter.
                 perCountryIntent.putExtra(COUNTRY_NEW_DECEASED, clickedItem.getNewDeceased());
                 perCountryIntent.putExtra(COUNTRY_TESTS, clickedItem.getTests());
                 perCountryIntent.putExtra(COUNTRY_FLAGURL, clickedItem.getFlag());
+                perCountryIntent.putExtra(COUNTRY_NEW_RECOVERED, clickedItem.getNewRecovered());
 
 
                 mContext.startActivity(perCountryIntent);

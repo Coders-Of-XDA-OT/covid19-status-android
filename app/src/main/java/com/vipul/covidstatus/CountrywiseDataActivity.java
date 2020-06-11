@@ -47,6 +47,7 @@ public class CountrywiseDataActivity extends AppCompatActivity {
     public static final String COUNTRY_NEW_DECEASED = "todayDeaths";
     public static final String COUNTRY_FLAGURL = "flag";
     public static final String COUNTRY_RECOVERED = "recovered";
+    public static final String COUNTRY_NEW_RECOVERED = "todayRecovered";
 
     private RecyclerView recyclerView;
     private CountrywiseAdapter countrywiseAdapter;
@@ -146,17 +147,21 @@ public class CountrywiseDataActivity extends AppCompatActivity {
                         String countryNewConfirmed = jsonObject.getString("todayCases");
                         String countryNewDeceased = jsonObject.getString("todayDeaths");
                         String countryTests = jsonObject.getString("tests");
+                        String countryNewRecovered = jsonObject.getString("todayRecovered");
                         JSONObject object = jsonObject.getJSONObject("countryInfo");
                         String flagUrl = object.getString("flag");
                         testValue = countryTests;
-
-                        countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl));
 
                         int newConfirmedInt = Integer.parseInt(countryNewConfirmed);
                         countryNewConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
 
                         int newDeceasedInt = Integer.parseInt(countryNewDeceased);
                         countryNewDeceased = NumberFormat.getInstance().format(newDeceasedInt);
+
+                        int countryNewRecoveredInt = Integer.parseInt(countryNewRecovered);
+                        countryNewRecovered = NumberFormat.getInstance().format(countryNewRecoveredInt);
+
+                        countrywiseModelArrayList.add(new CountrywiseModel(countryName, countryConfirmed, countryActive, countryDeceased, countryNewConfirmed, countryNewDeceased, countryRecovered, countryTests, flagUrl, countryNewRecovered));
 
 
                         Collections.sort(countrywiseModelArrayList, new Comparator<CountrywiseModel>() {
@@ -213,6 +218,7 @@ public class CountrywiseDataActivity extends AppCompatActivity {
         perCountryIntent.putExtra(COUNTRY_NEW_DECEASED, clickedItem.getNewDeceased());
         perCountryIntent.putExtra(COUNTRY_TESTS, clickedItem.getTests());
         perCountryIntent.putExtra(COUNTRY_FLAGURL, clickedItem.getFlag());
+        perCountryIntent.putExtra(COUNTRY_NEW_RECOVERED, clickedItem.getNewRecovered());
 
 
         startActivity(perCountryIntent);
