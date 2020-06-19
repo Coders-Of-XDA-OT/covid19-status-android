@@ -16,11 +16,10 @@
 
 
     <!--App version-->
-    <string name="version">2.0</string>
+    <string name="version">2.1</string>
 
 
     <!--App changelog-->
-    <string name="changelogTitle">Covid-19 Status v2.0:</string>
-    <string name="changelog">\u2022 Added district wise data.\n\u2022 Sorted global data according to cases.\n\u2022 Added total cases screen for global data.\n\u2022 Fix navbar colour.\n\u2022 Added update notifier for new updates.\n\u2022 Added changelog alert dialog when app is opened first time.
-    </string>
+    <string name="changelogTitle">Covid-19 Status v2.1</string>
+    <string name="changelog">\u2022 Fixed some layout glitches.\n\u2022 Fixed countries not showing new recovered cases.\n\u2022 Improvements in push notifications\n\u2022 Other minor under the hood changes.</string>
 </resources>
