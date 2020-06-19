@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Developed by Vipul Jha"
+            android:text="@string/owner_text"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>
