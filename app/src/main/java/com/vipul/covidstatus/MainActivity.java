@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         fetchUpdate();
         showProgressDialog();
         fetchData();
-        if (isFirstStart || !appVersion.equals(BuildConfig.VERSION_NAME)){
+        if (isFirstStart || !appVersion.equals(BuildConfig.VERSION_NAME)) {
             showChanges();
         }
 
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void showChanges(){
+    private void showChanges() {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.changelogTitle)
                 .setMessage(R.string.changelog)
@@ -459,7 +459,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void fetchUpdate(){
+    public void fetchUpdate() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String apiUrl = "https://vipul-api.netlify.app/api/version.json";
 
@@ -471,9 +471,9 @@ public class MainActivity extends AppCompatActivity {
                     updateUrl = response.getString("url");
                     updateChanges = response.getString("changes");
 
-                    if (!updateVersion.equals(String.valueOf(BuildConfig.VERSION_NAME))){
+                    if (!updateVersion.equals(String.valueOf(BuildConfig.VERSION_NAME))) {
                         new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("v"+updateVersion+" update available!")
+                                .setTitle("v" + updateVersion + " update available!")
                                 .setMessage(updateChanges)
                                 .setPositiveButton("Update", new DialogInterface.OnClickListener() {
                                     @Override
