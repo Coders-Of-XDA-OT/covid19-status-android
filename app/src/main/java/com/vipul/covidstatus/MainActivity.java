@@ -29,6 +29,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.vipul.covidstatus.activities.InfoActivity;
+import com.vipul.covidstatus.activities.StatewiseDataActivity;
+import com.vipul.covidstatus.activities.WorldDataActivity;
 
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;

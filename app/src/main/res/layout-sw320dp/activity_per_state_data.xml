@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context=".PerStateData">
+    tools:context=".data.PerStateData">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -17,27 +17,27 @@
         android:theme="@style/AppTheme">
         <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_corona" />
 
-        <activity android:name=".WorldDataActivity" />
-        <activity android:name=".PerDistrictData" />
-        <activity android:name=".DistrictwiseDataActivity" />
+        <activity android:name=".activities.WorldDataActivity" />
+        <activity android:name=".data.PerDistrictData" />
+        <activity android:name=".activities.DistrictwiseDataActivity" />
         <activity
-            android:name=".InfoActivity"
+            android:name=".activities.InfoActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".PerCountryData"
+            android:name=".data.PerCountryData"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".CountrywiseDataActivity"
+            android:name=".activities.CountrywiseDataActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".PerStateData"
+            android:name=".data.PerStateData"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".StatewiseDataActivity"
+            android:name=".activities.StatewiseDataActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
@@ -45,7 +45,7 @@
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme2"
             tools:ignore="LockedOrientationActivity">
