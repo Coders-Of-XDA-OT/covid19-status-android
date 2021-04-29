@@ -169,6 +169,42 @@ public class MainActivity extends AppCompatActivity {
         backPressTime = System.currentTimeMillis();
     }
 
+    private void putData() {
+        BigInteger confirmedInt = new BigInteger(confirmed);
+        confirmed = NumberFormat.getInstance().format(confirmedInt);
+        textView_confirmed.setText(confirmed);
+
+        int newConfirmedInt = Integer.parseInt(newConfirmed);
+        newConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
+        textView_confirmed_new.setText("+" + newConfirmed);
+
+        BigInteger activeInt = new BigInteger(active);
+        active = NumberFormat.getInstance().format(activeInt);
+        textView_active.setText(active);
+
+        BigInteger recoveredInt = new BigInteger(recovered);
+        recovered = NumberFormat.getInstance().format(recoveredInt);
+        textView_recovered.setText(recovered);
+
+        int recoveredNewInt = Integer.parseInt(newRecovered);
+        newRecovered = NumberFormat.getInstance().format(recoveredNewInt);
+        textView_recovered_new.setText("+" + newRecovered);
+
+        BigInteger deathsInt = new BigInteger(deaths);
+        deaths = NumberFormat.getInstance().format(deathsInt);
+        textView_death.setText(deaths);
+
+        int deathsNewInt = Integer.parseInt(newDeaths);
+        newDeaths = NumberFormat.getInstance().format(deathsNewInt);
+        textView_death_new.setText("+" + newDeaths);
+
+        String dateFormat = formatDate(date, 1);
+        textView_date.setText(dateFormat);
+
+        String timeFormat = formatDate(date, 2);
+        textview_time.setText(timeFormat);
+    }
+
     public void fetchData() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String apiUrl = "https://api.covid19india.org/data.json";
@@ -206,40 +242,7 @@ public class MainActivity extends AppCompatActivity {
                                 String recoveredCopy = recovered;
                                 String confirmedNewCopy = newConfirmed;
 
-
-                                BigInteger confirmedInt = new BigInteger(confirmed);
-                                confirmed = NumberFormat.getInstance().format(confirmedInt);
-                                textView_confirmed.setText(confirmed);
-
-                                int newConfirmedInt = Integer.parseInt(newConfirmed);
-                                newConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
-                                textView_confirmed_new.setText("+" + newConfirmed);
-
-                                BigInteger activeInt = new BigInteger(active);
-                                active = NumberFormat.getInstance().format(activeInt);
-                                textView_active.setText(active);
-
-                                BigInteger recoveredInt = new BigInteger(recovered);
-                                recovered = NumberFormat.getInstance().format(recoveredInt);
-                                textView_recovered.setText(recovered);
-
-                                int recoveredNewInt = Integer.parseInt(newRecovered);
-                                newRecovered = NumberFormat.getInstance().format(recoveredNewInt);
-                                textView_recovered_new.setText("+" + newRecovered);
-
-                                BigInteger deathsInt = new BigInteger(deaths);
-                                deaths = NumberFormat.getInstance().format(deathsInt);
-                                textView_death.setText(deaths);
-
-                                int deathsNewInt = Integer.parseInt(newDeaths);
-                                newDeaths = NumberFormat.getInstance().format(deathsNewInt);
-                                textView_death_new.setText("+" + newDeaths);
-
-                                String dateFormat = formatDate(date, 1);
-                                textView_date.setText(dateFormat);
-
-                                String timeFormat = formatDate(date, 2);
-                                textview_time.setText(timeFormat);
+                                putData();
 
                                 mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
                                 mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));
@@ -274,40 +277,7 @@ public class MainActivity extends AppCompatActivity {
                                     String recoveredCopy = recovered;
                                     String confirmedNewCopy = newConfirmed;
 
-                                    BigInteger confirmedInt = new BigInteger(confirmed);
-                                    confirmed = NumberFormat.getInstance().format(confirmedInt);
-                                    textView_confirmed.setText(confirmed);
-
-                                    int newConfirmedInt = Integer.parseInt(newConfirmed);
-                                    newConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
-                                    textView_confirmed_new.setText("+" + newConfirmed);
-
-                                    BigInteger activeInt = new BigInteger(active);
-                                    active = NumberFormat.getInstance().format(activeInt);
-                                    textView_active.setText(active);
-
-                                    BigInteger recoveredInt = new BigInteger(recovered);
-                                    recovered = NumberFormat.getInstance().format(recoveredInt);
-                                    textView_recovered.setText(recovered);
-
-                                    int recoveredNewInt = Integer.parseInt(newRecovered);
-                                    newRecovered = NumberFormat.getInstance().format(recoveredNewInt);
-                                    textView_recovered_new.setText("+" + newRecovered);
-
-                                    BigInteger deathsInt = new BigInteger(deaths);
-                                    deaths = NumberFormat.getInstance().format(deathsInt);
-                                    textView_death.setText(deaths);
-
-                                    int deathsNewInt = Integer.parseInt(newDeaths);
-                                    newDeaths = NumberFormat.getInstance().format(deathsNewInt);
-                                    textView_death_new.setText("+" + newDeaths);
-
-
-                                    String dateFormat = formatDate(date, 1);
-                                    textView_date.setText(dateFormat);
-
-                                    String timeFormat = formatDate(date, 2);
-                                    textview_time.setText(timeFormat);
+                                    putData();
 
                                     mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
                                     mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recoveredCopy), Color.parseColor("#08a045")));

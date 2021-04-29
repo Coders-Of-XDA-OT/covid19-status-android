@@ -81,6 +81,40 @@ public class WorldDataActivity extends AppCompatActivity {
         });
     }
 
+    private void putData(){
+        BigInteger confirmedInt = new BigInteger(totalCases);
+        totalCases = NumberFormat.getInstance().format(confirmedInt);
+        textView_confirmed.setText(totalCases);
+
+        int newCasesInt = Integer.parseInt(newCases);
+        newCases = NumberFormat.getInstance().format(newCasesInt);
+        textView_confirmed_new.setText("+" + newCases);
+
+        BigInteger totalActiveInt = new BigInteger(totalActive);
+        totalActive = NumberFormat.getInstance().format(totalActiveInt);
+        textView_totalActive.setText(totalActive);
+
+        BigInteger totalRecoveredInt = new BigInteger(totalRecovered);
+        totalRecovered = NumberFormat.getInstance().format(totalRecoveredInt);
+        textView_totalRecovered.setText(totalRecovered);
+
+        int totalRecoveredNewInt = Integer.parseInt(newRecovered);
+        newRecovered = NumberFormat.getInstance().format(totalRecoveredNewInt);
+        textView_totalRecovered_new.setText("+" + newRecovered);
+
+        BigInteger totalDeceasedInt = new BigInteger(totalDeceased);
+        totalDeceased = NumberFormat.getInstance().format(totalDeceasedInt);
+        textView_death.setText(totalDeceased);
+
+        int totalDeceasedNewInt = Integer.parseInt(newDeceased);
+        newDeceased = NumberFormat.getInstance().format(totalDeceasedNewInt);
+        textView_death_new.setText("+" + newDeceased);
+
+        BigInteger testsInt=new BigInteger(tests);
+        tests = NumberFormat.getInstance().format(testsInt);
+        textView_tests.setText(tests);
+    }
+
     public void fetchData() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String apiUrl = "https://corona.lmao.ninja/v2/all";
@@ -110,37 +144,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                 String totalDeceasedCopy = totalDeceased;
                                 String totalRecoveredCopy = totalRecovered;
 
-                                BigInteger confirmedInt = new BigInteger(totalCases);
-                                totalCases = NumberFormat.getInstance().format(confirmedInt);
-                                textView_confirmed.setText(totalCases);
-
-                                int newCasesInt = Integer.parseInt(newCases);
-                                newCases = NumberFormat.getInstance().format(newCasesInt);
-                                textView_confirmed_new.setText("+" + newCases);
-
-                                BigInteger totalActiveInt = new BigInteger(totalActive);
-                                totalActive = NumberFormat.getInstance().format(totalActiveInt);
-                                textView_totalActive.setText(totalActive);
-
-                                BigInteger totalRecoveredInt = new BigInteger(totalRecovered);
-                                totalRecovered = NumberFormat.getInstance().format(totalRecoveredInt);
-                                textView_totalRecovered.setText(totalRecovered);
-
-                                int totalRecoveredNewInt = Integer.parseInt(newRecovered);
-                                newRecovered = NumberFormat.getInstance().format(totalRecoveredNewInt);
-                                textView_totalRecovered_new.setText("+" + newRecovered);
-
-                                BigInteger totalDeceasedInt = new BigInteger(totalDeceased);
-                                totalDeceased = NumberFormat.getInstance().format(totalDeceasedInt);
-                                textView_death.setText(totalDeceased);
-
-                                int totalDeceasedNewInt = Integer.parseInt(newDeceased);
-                                newDeceased = NumberFormat.getInstance().format(totalDeceasedNewInt);
-                                textView_death_new.setText("+" + newDeceased);
-
-                                BigInteger testsInt=new BigInteger(tests);
-                                tests = NumberFormat.getInstance().format(testsInt);
-                                textView_tests.setText(tests);
+                                putData();
 
                                 mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(totalActiveCopy), Color.parseColor("#007afe")));
                                 mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(totalRecoveredCopy), Color.parseColor("#08a045")));
@@ -171,37 +175,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                     String totalDeceasedCopy = totalDeceased;
                                     String totalRecoveredCopy = totalRecovered;
 
-                                    BigInteger confirmedInt = new BigInteger(totalCases);
-                                    totalCases = NumberFormat.getInstance().format(confirmedInt);
-                                    textView_confirmed.setText(totalCases);
-
-                                    int newCasesInt = Integer.parseInt(newCases);
-                                    newCases = NumberFormat.getInstance().format(newCasesInt);
-                                    textView_confirmed_new.setText("+" + newCases);
-
-                                    BigInteger totalActiveInt = new BigInteger(totalActive);
-                                    totalActive = NumberFormat.getInstance().format(totalActiveInt);
-                                    textView_totalActive.setText(totalActive);
-
-                                    BigInteger totalRecoveredInt = new BigInteger(totalRecovered);
-                                    totalRecovered = NumberFormat.getInstance().format(totalRecoveredInt);
-                                    textView_totalRecovered.setText(totalRecovered);
-
-                                    int totalRecoveredNewInt = Integer.parseInt(newRecovered);
-                                    newRecovered = NumberFormat.getInstance().format(totalRecoveredNewInt);
-                                    textView_totalRecovered_new.setText("+" + newRecovered);
-
-                                    BigInteger totalDeceasedInt = new BigInteger(totalDeceased);
-                                    totalDeceased = NumberFormat.getInstance().format(totalDeceasedInt);
-                                    textView_death.setText(totalDeceased);
-
-                                    int totalDeceasedNewInt = Integer.parseInt(newDeceased);
-                                    newDeceased = NumberFormat.getInstance().format(totalDeceasedNewInt);
-                                    textView_death_new.setText("+" + newDeceased);
-
-                                    BigInteger testsInt=new BigInteger(tests);
-                                    tests = NumberFormat.getInstance().format(testsInt);
-                                    textView_tests.setText(tests);
+                                    putData();
 
                                     mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(totalActiveCopy), Color.parseColor("#007afe")));
                                     mPieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(totalRecoveredCopy), Color.parseColor("#08a045")));
