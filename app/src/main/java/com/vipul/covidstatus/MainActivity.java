@@ -39,6 +39,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigInteger;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     String newRecovered;
     String totalTests;
     String oldTests;
-    int testsInt;
+    BigInteger testsInt;
     String totalTestsCopy;
     public static int confirmation = 0;
     public static boolean isRefreshed;
@@ -206,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                                 String confirmedNewCopy = newConfirmed;
 
 
-                                int confirmedInt = Integer.parseInt(confirmed);
+                                BigInteger confirmedInt = new BigInteger(confirmed);
                                 confirmed = NumberFormat.getInstance().format(confirmedInt);
                                 textView_confirmed.setText(confirmed);
 
@@ -214,15 +215,11 @@ public class MainActivity extends AppCompatActivity {
                                 newConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
                                 textView_confirmed_new.setText("+" + newConfirmed);
 
-                                int activeInt = Integer.parseInt(active);
+                                BigInteger activeInt = new BigInteger(active);
                                 active = NumberFormat.getInstance().format(activeInt);
                                 textView_active.setText(active);
 
-//                                //We need to calculate new active cases since it doesn't exist in API
-//                                int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-//                                textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
-
-                                int recoveredInt = Integer.parseInt(recovered);
+                                BigInteger recoveredInt = new BigInteger(recovered);
                                 recovered = NumberFormat.getInstance().format(recoveredInt);
                                 textView_recovered.setText(recovered);
 
@@ -230,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                                 newRecovered = NumberFormat.getInstance().format(recoveredNewInt);
                                 textView_recovered_new.setText("+" + newRecovered);
 
-                                int deathsInt = Integer.parseInt(deaths);
+                                BigInteger deathsInt = new BigInteger(deaths);
                                 deaths = NumberFormat.getInstance().format(deathsInt);
                                 textView_death.setText(deaths);
 
@@ -277,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
                                     String recoveredCopy = recovered;
                                     String confirmedNewCopy = newConfirmed;
 
-                                    int confirmedInt = Integer.parseInt(confirmed);
+                                    BigInteger confirmedInt = new BigInteger(confirmed);
                                     confirmed = NumberFormat.getInstance().format(confirmedInt);
                                     textView_confirmed.setText(confirmed);
 
@@ -285,15 +282,11 @@ public class MainActivity extends AppCompatActivity {
                                     newConfirmed = NumberFormat.getInstance().format(newConfirmedInt);
                                     textView_confirmed_new.setText("+" + newConfirmed);
 
-                                    int activeInt = Integer.parseInt(active);
+                                    BigInteger activeInt = new BigInteger(active);
                                     active = NumberFormat.getInstance().format(activeInt);
                                     textView_active.setText(active);
 
-//                                    //We need to calculate new active cases since it doesn't exist in API
-//                                    int newActive = (Integer.parseInt(confirmedNewCopy)) - ((Integer.parseInt(newRecovered)) + Integer.parseInt(newDeaths));
-//                                    textView_active_new.setText("+" + NumberFormat.getInstance().format(newActive));
-
-                                    int recoveredInt = Integer.parseInt(recovered);
+                                    BigInteger recoveredInt = new BigInteger(recovered);
                                     recovered = NumberFormat.getInstance().format(recoveredInt);
                                     textView_recovered.setText(recovered);
 
@@ -301,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                                     newRecovered = NumberFormat.getInstance().format(recoveredNewInt);
                                     textView_recovered_new.setText("+" + newRecovered);
 
-                                    int deathsInt = Integer.parseInt(deaths);
+                                    BigInteger deathsInt = new BigInteger(deaths);
                                     deaths = NumberFormat.getInstance().format(deathsInt);
                                     textView_death.setText(deaths);
 
@@ -391,7 +384,7 @@ public class MainActivity extends AppCompatActivity {
                             totalTests = statewise.getString("totalsamplestested");
                         }
                         totalTestsCopy = totalTests;
-                        testsInt = Integer.parseInt(totalTests);
+                        testsInt = new BigInteger(totalTests);
                         totalTests = NumberFormat.getInstance().format(testsInt);
                         textView_tests.setText(totalTests);
 
@@ -405,7 +398,7 @@ public class MainActivity extends AppCompatActivity {
 
                     } else {
                         totalTestsCopy = totalTests;
-                        testsInt = Integer.parseInt(totalTests);
+                        testsInt = new BigInteger(totalTests);
                         totalTests = NumberFormat.getInstance().format(testsInt);
                         textView_tests.setText(totalTests);
 
