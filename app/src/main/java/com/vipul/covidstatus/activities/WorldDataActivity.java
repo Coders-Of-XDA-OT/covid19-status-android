@@ -28,6 +28,7 @@ import org.eazegraph.lib.models.PieModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigInteger;
 import java.text.NumberFormat;
 import java.util.Objects;
 
@@ -109,7 +110,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                 String totalDeceasedCopy = totalDeceased;
                                 String totalRecoveredCopy = totalRecovered;
 
-                                int confirmedInt = Integer.parseInt(totalCases);
+                                BigInteger confirmedInt = new BigInteger(totalCases);
                                 totalCases = NumberFormat.getInstance().format(confirmedInt);
                                 textView_confirmed.setText(totalCases);
 
@@ -117,11 +118,11 @@ public class WorldDataActivity extends AppCompatActivity {
                                 newCases = NumberFormat.getInstance().format(newCasesInt);
                                 textView_confirmed_new.setText("+" + newCases);
 
-                                int totalActiveInt = Integer.parseInt(totalActive);
+                                BigInteger totalActiveInt = new BigInteger(totalActive);
                                 totalActive = NumberFormat.getInstance().format(totalActiveInt);
                                 textView_totalActive.setText(totalActive);
 
-                                int totalRecoveredInt = Integer.parseInt(totalRecovered);
+                                BigInteger totalRecoveredInt = new BigInteger(totalRecovered);
                                 totalRecovered = NumberFormat.getInstance().format(totalRecoveredInt);
                                 textView_totalRecovered.setText(totalRecovered);
 
@@ -129,7 +130,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                 newRecovered = NumberFormat.getInstance().format(totalRecoveredNewInt);
                                 textView_totalRecovered_new.setText("+" + newRecovered);
 
-                                int totalDeceasedInt = Integer.parseInt(totalDeceased);
+                                BigInteger totalDeceasedInt = new BigInteger(totalDeceased);
                                 totalDeceased = NumberFormat.getInstance().format(totalDeceasedInt);
                                 textView_death.setText(totalDeceased);
 
@@ -137,7 +138,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                 newDeceased = NumberFormat.getInstance().format(totalDeceasedNewInt);
                                 textView_death_new.setText("+" + newDeceased);
 
-                                int testsInt = Integer.parseInt(tests);
+                                BigInteger testsInt=new BigInteger(tests);
                                 tests = NumberFormat.getInstance().format(testsInt);
                                 textView_tests.setText(tests);
 
@@ -170,7 +171,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                     String totalDeceasedCopy = totalDeceased;
                                     String totalRecoveredCopy = totalRecovered;
 
-                                    int confirmedInt = Integer.parseInt(totalCases);
+                                    BigInteger confirmedInt = new BigInteger(totalCases);
                                     totalCases = NumberFormat.getInstance().format(confirmedInt);
                                     textView_confirmed.setText(totalCases);
 
@@ -178,11 +179,11 @@ public class WorldDataActivity extends AppCompatActivity {
                                     newCases = NumberFormat.getInstance().format(newCasesInt);
                                     textView_confirmed_new.setText("+" + newCases);
 
-                                    int totalActiveInt = Integer.parseInt(totalActive);
+                                    BigInteger totalActiveInt = new BigInteger(totalActive);
                                     totalActive = NumberFormat.getInstance().format(totalActiveInt);
                                     textView_totalActive.setText(totalActive);
 
-                                    int totalRecoveredInt = Integer.parseInt(totalRecovered);
+                                    BigInteger totalRecoveredInt = new BigInteger(totalRecovered);
                                     totalRecovered = NumberFormat.getInstance().format(totalRecoveredInt);
                                     textView_totalRecovered.setText(totalRecovered);
 
@@ -190,7 +191,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                     newRecovered = NumberFormat.getInstance().format(totalRecoveredNewInt);
                                     textView_totalRecovered_new.setText("+" + newRecovered);
 
-                                    int totalDeceasedInt = Integer.parseInt(totalDeceased);
+                                    BigInteger totalDeceasedInt = new BigInteger(totalDeceased);
                                     totalDeceased = NumberFormat.getInstance().format(totalDeceasedInt);
                                     textView_death.setText(totalDeceased);
 
@@ -198,7 +199,7 @@ public class WorldDataActivity extends AppCompatActivity {
                                     newDeceased = NumberFormat.getInstance().format(totalDeceasedNewInt);
                                     textView_death_new.setText("+" + newDeceased);
 
-                                    int testsInt = Integer.parseInt(tests);
+                                    BigInteger testsInt=new BigInteger(tests);
                                     tests = NumberFormat.getInstance().format(testsInt);
                                     textView_tests.setText(tests);
 

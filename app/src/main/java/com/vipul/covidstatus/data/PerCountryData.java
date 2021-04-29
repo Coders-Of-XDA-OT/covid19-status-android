@@ -15,6 +15,7 @@ import com.vipul.covidstatus.R;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
+import java.math.BigInteger;
 import java.text.NumberFormat;
 import java.util.Objects;
 
@@ -69,19 +70,19 @@ public class PerCountryData extends AppCompatActivity {
         String recoveredCopy = countryRecovery;
         String deceasedCopy = countryDeceased;
 
-        int activeInt = Integer.parseInt(countryActive);
+        BigInteger activeInt = new BigInteger(countryActive);
         countryActive = NumberFormat.getInstance().format(activeInt);
 
-        int recoveredInt = Integer.parseInt(countryRecovery);
+        BigInteger recoveredInt = new BigInteger(countryRecovery);
         countryRecovery = NumberFormat.getInstance().format(recoveredInt);
 
-        int deceasedInt = Integer.parseInt(countryDeceased);
+        BigInteger deceasedInt = new BigInteger(countryDeceased);
         countryDeceased = NumberFormat.getInstance().format(deceasedInt);
 
-        int confirmedInt = Integer.parseInt(countryConfirmed);
+        BigInteger confirmedInt = new BigInteger(countryConfirmed);
         countryConfirmed = NumberFormat.getInstance().format(confirmedInt);
 
-        int testsInt = Integer.parseInt(countryTests);
+        BigInteger testsInt = new BigInteger(countryTests);
         countryTests = NumberFormat.getInstance().format(testsInt);
 
         mPieChart.addPieSlice(new PieModel("Active", Integer.parseInt(activeCopy), Color.parseColor("#007afe")));
