@@ -117,7 +117,7 @@ public class WorldDataActivity extends AppCompatActivity {
 
     public void fetchData() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String apiUrl = "https://corona.lmao.ninja/v2/all";
+        String apiUrl = "https://disease.sh/v3/covid-19/all";
        final PieChart mPieChart = findViewById(R.id.piechart_world);
         mPieChart.clearChart();
 
