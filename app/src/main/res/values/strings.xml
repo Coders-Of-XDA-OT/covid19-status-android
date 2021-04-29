@@ -16,10 +16,10 @@
 
 
     <!--App version-->
-    <string name="version">2.1</string>
+    <string name="version">3.0</string>
 
 
     <!--App changelog-->
-    <string name="changelogTitle">Covid-19 Status v2.1</string>
-    <string name="changelog">\u2022 Fixed some layout glitches.\n\u2022 Fixed countries not showing new recovered cases.\n\u2022 Improvements in push notifications\n\u2022 Other minor under the hood changes.</string>
+    <string name="changelogTitle">Covid-19 Status v3.0</string>
+    <string name="changelog">\u2022 Fixed app crash on World Data screen.\n\u2022 Updated the dependencies to latest.\n\u2022 Use the new and updated API\n\u2022 Other minor fixes and code clean-up.</string>
 </resources>
