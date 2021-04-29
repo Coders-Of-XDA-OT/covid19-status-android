@@ -79,7 +79,7 @@ public class DistrictwiseDataActivity extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.district_refresh);
         search = findViewById(R.id.search_editText);
 
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         districtModelArrayList = new ArrayList<>();
 

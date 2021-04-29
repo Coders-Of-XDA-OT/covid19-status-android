@@ -76,7 +76,7 @@ public class CountrywiseDataActivity extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.countrywise_refresh);
         search = findViewById(R.id.search_editText);
 
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         countrywiseModelArrayList = new ArrayList<>();
 

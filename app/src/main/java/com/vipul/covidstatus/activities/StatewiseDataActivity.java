@@ -73,7 +73,7 @@ public class StatewiseDataActivity extends AppCompatActivity implements Statewis
 
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         statewiseModelArrayList = new ArrayList<>();
 
