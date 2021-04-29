@@ -70,7 +70,7 @@ public class InfoActivity extends AppCompatActivity {
     public void checkUpdate(View view){
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String apiUrl = "https://vipul-api.netlify.app/api/version.json";
+        String apiUrl = "https://api.vipuljha.com/apis/covid/version.json";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, apiUrl, null, new Response.Listener<JSONObject>() {
             @Override
